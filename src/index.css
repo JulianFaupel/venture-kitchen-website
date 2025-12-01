@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+:root {
+  --vk-primary: #C88209;
+  --vk-secondary: #D8D2CA;
+  --vk-white: #FFFFFF;
+  --vk-text-main: #545454;
+  --vk-n0: #FFFFFF;
+  --vk-n25: #F7F5F2;
+  --vk-n50: #EEEAE4;
+  --vk-n100: #E1DBD2;
+  --vk-n200: #CFC7BD;
+  --vk-n700: #545454;
+  --vk-n900: #262626;
+  --vk-primary-soft: #F4DFBE;
+  --vk-primary-strong: #9F6605;
+  --vk-radius-sm: 6px;
+  --vk-radius-md: 12px;
+  --vk-radius-lg: 20px;
+  --vk-radius-xl: 28px;
+  --vk-radius-pill: 999px;
+  --vk-shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.06);
+  --vk-shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.10);
+  --vk-page-max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Glacial Indifference", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--vk-text-main);
+  background: var(--vk-n25);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  color: var(--vk-n900);
+  letter-spacing: -0.02em;
+}
+
+.page {
+  max-width: var(--vk-page-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--vk-radius-pill);
+  border: 1px solid transparent;
+  padding: 14px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: var(--vk-primary);
+  color: var(--vk-white);
+  box-shadow: var(--vk-shadow-soft);
+}
+
+.btn-primary:hover {
+  background: var(--vk-primary-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--vk-shadow-medium);
+}
+
+.btn-secondary {
+  background: var(--vk-white);
+  color: var(--vk-n900);
+  border-color: var(--vk-n200);
+}
+
+.btn-secondary:hover {
+  background: var(--vk-n50);
+  transform: translateY(-1px);
+}
+
+.btn-light {
+  background: var(--vk-white);
+  color: var(--vk-n900);
+}
+
+.btn-light:hover {
+  background: var(--vk-n50);
+  transform: translateY(-2px);
+}

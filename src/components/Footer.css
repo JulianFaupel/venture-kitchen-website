@@ -1,0 +1,59 @@
+.footer {
+  padding: 60px 0 40px;
+  background: var(--vk-n25);
+  border-top: 1px solid var(--vk-n100);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vk-n700);
+}
+
+.footer__copy {
+  font-size: 0.85rem;
+  color: #8A847B;
+}
+
+/* Logo mark (same as nav) */
+.logo-mark {
+  position: relative;
+  width: 48px;
+  height: 32px;
+}
+
+.logo-mark__back {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--vk-secondary);
+  top: -4px;
+  left: 14px;
+}
+
+.logo-mark__front {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--vk-primary);
+  bottom: -2px;
+  left: 0;
+}

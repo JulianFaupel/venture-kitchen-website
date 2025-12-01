@@ -1,0 +1,105 @@
+.usp {
+  padding: 120px 0;
+  background: var(--vk-n25);
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .usp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usp-card {
+  background: var(--vk-n0);
+  border-radius: var(--vk-radius-xl);
+  padding: 36px;
+  box-shadow: var(--vk-shadow-soft);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.usp-card:hover {
+  border-color: var(--vk-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--vk-shadow-medium);
+}
+
+.usp-card--highlight {
+  background: var(--vk-primary-soft);
+  border: 2px solid var(--vk-primary);
+}
+
+.usp-card__icon {
+  width: 48px;
+  height: 48px;
+  background: var(--vk-primary);
+  border-radius: var(--vk-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.usp-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--vk-white);
+  fill: none;
+  stroke-width: 2;
+}
+
+.usp-card__title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.usp-card__text {
+  font-size: 0.95rem;
+  color: var(--vk-n700);
+}
+
+/* Section Header (shared) */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-header__eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: #8A847B;
+  margin-bottom: 16px;
+}
+
+.section-header__title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-header__subtitle {
+  font-size: 1.1rem;
+  color: var(--vk-n700);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}

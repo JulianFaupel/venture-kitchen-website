@@ -1,0 +1,81 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(247, 245, 242, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--vk-n100);
+}
+
+.nav__inner {
+  max-width: var(--vk-page-max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  position: relative;
+  width: 48px;
+  height: 32px;
+}
+
+.logo-mark__back {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--vk-secondary);
+  top: -4px;
+  left: 14px;
+}
+
+.logo-mark__front {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--vk-primary);
+  bottom: -2px;
+  left: 0;
+}
+
+.nav__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vk-n700);
+}
+
+.nav__cta {
+  background: var(--vk-primary);
+  color: var(--vk-white);
+  padding: 10px 20px;
+  border-radius: var(--vk-radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--vk-shadow-soft);
+}
+
+.nav__cta:hover {
+  background: var(--vk-primary-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--vk-shadow-medium);
+}

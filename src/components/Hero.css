@@ -1,0 +1,147 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--vk-primary);
+  background: var(--vk-primary-soft);
+  padding: 6px 14px;
+  border-radius: var(--vk-radius-pill);
+  margin-bottom: 24px;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.hero__title span {
+  color: var(--vk-primary);
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--vk-n700);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+@media (max-width: 900px) {
+  .hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.hero__btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .hero__btns {
+    justify-content: center;
+  }
+}
+
+.hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animated circles visual */
+.circles {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+@media (max-width: 900px) {
+  .circles {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle--1 {
+  width: 200px;
+  height: 200px;
+  background: var(--vk-secondary);
+  top: 20%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.circle--2 {
+  width: 150px;
+  height: 150px;
+  background: var(--vk-primary);
+  bottom: 15%;
+  left: 15%;
+  animation-delay: -2s;
+  box-shadow: var(--vk-shadow-medium);
+}
+
+.circle--3 {
+  width: 80px;
+  height: 80px;
+  background: var(--vk-n100);
+  top: 10%;
+  left: 20%;
+  animation-delay: -4s;
+}
+
+.circle--4 {
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--vk-primary);
+  background: transparent;
+  bottom: 30%;
+  right: 20%;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@media (max-width: 900px) {
+  .circle--1 { width: 140px; height: 140px; }
+  .circle--2 { width: 100px; height: 100px; }
+  .circle--3 { width: 50px; height: 50px; }
+  .circle--4 { width: 40px; height: 40px; }
+}
