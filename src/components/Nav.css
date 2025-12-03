@@ -15,7 +15,6 @@
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -24,6 +23,7 @@
   align-items: center;
   gap: 14px;
   text-decoration: none;
+  margin-right: auto;
 }
 
 .logo-mark {
@@ -58,6 +58,30 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--vk-n700);
+}
+
+.nav__links {
+  display: flex;
+  gap: 32px;
+  margin-right: 32px;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--vk-n700);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav__link:hover {
+  color: var(--vk-primary);
+}
+
+@media (max-width: 700px) {
+  .nav__links {
+    display: none;
+  }
 }
 
 .nav__cta {

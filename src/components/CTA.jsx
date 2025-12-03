@@ -22,9 +22,16 @@ export default function CTA() {
     <section className="cta-section" id="contact">
       <div className="page">
         <div className="cta-box reveal" ref={ref}>
-          <h2 className="cta-box__title">Bereit für ein Gespräch?</h2>
-          <p className="cta-box__text">Lassen Sie uns herausfinden, wie wir gemeinsam Ihr digitales Produkt entwickeln können.</p>
-          <a href="mailto:hello@venturekitchen.de" className="btn btn-light">Kontakt aufnehmen</a>
+          <div className="cta-box__content">
+            <p className="cta-box__eyebrow">Lassen Sie uns sprechen</p>
+            <h2 className="cta-box__title">Bereit für unser erstes gemeinsames Projekt?</h2>
+            <p className="cta-box__text">
+              In einem kurzen Gespräch finden wir heraus, ob und wie wir zusammenarbeiten können.
+            </p>
+          </div>
+          <div className="cta-box__action">
+            <a href="mailto:hello@venturekitchen.de" className="btn btn-light">Kontakt aufnehmen</a>
+          </div>
         </div>
       </div>
     </section>

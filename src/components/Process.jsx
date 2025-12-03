@@ -3,22 +3,22 @@ import './Process.css'
 
 const steps = [
   {
-    number: 1,
+    number: '01',
     title: 'Business verstehen',
     text: 'Wir tauchen tief in Ihr Geschäftsmodell ein: Ziele, Kunden, Prozesse.'
   },
   {
-    number: 2,
+    number: '02',
     title: 'Produkt konzipieren',
     text: 'Die entscheidende Transferleistung: Vom Business-Verständnis zur smarten Lösung.'
   },
   {
-    number: 3,
+    number: '03',
     title: 'Iterativ entwickeln',
     text: 'Agile Entwicklung mit kontinuierlichem Feedback. Fokus auf Business-Outcomes.'
   },
   {
-    number: 4,
+    number: '04',
     title: 'Validieren & optimieren',
     text: 'Der Launch ist der Anfang, nicht das Ende. Lernen, messen, verbessern.'
   }
@@ -49,14 +49,21 @@ export default function Process() {
         <div className="section-header reveal" ref={el => refs.current[0] = el}>
           <p className="section-header__eyebrow">Unser Prozess</p>
           <h2 className="section-header__title">Von der Idee zum Produkt</h2>
-          <p className="section-header__subtitle">Was viele Agenturen überspringen, ist für uns die Basis.</p>
         </div>
-        <div className="process-steps">
+        <div className="process-timeline">
           {steps.map((step, i) => (
-            <div className="step reveal" key={step.number} ref={el => refs.current[i + 1] = el}>
-              <div className="step__number">{step.number}</div>
-              <h3 className="step__title">{step.title}</h3>
-              <p className="step__text">{step.text}</p>
+            <div
+              className="process-step reveal"
+              key={step.number}
+              ref={el => refs.current[i + 1] = el}
+              style={{ transitionDelay: `${i * 0.15}s` }}
+            >
+              <div className="process-step__number">{step.number}</div>
+              <div className="process-step__content">
+                <h3 className="process-step__title">{step.title}</h3>
+                <p className="process-step__text">{step.text}</p>
+              </div>
+              {i < steps.length - 1 && <div className="process-step__connector"></div>}
             </div>
           ))}
         </div>

@@ -1,95 +1,111 @@
 .difference {
   padding: 120px 0;
-  background: var(--vk-n25);
+  background: #2F2F2F;
 }
 
-.section-header {
-  text-align: center;
+.difference__header {
   margin-bottom: 64px;
 }
 
-.section-header__eyebrow {
+.difference__eyebrow {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-weight: 600;
-  color: #8A847B;
-  margin-bottom: 16px;
+  color: var(--vk-primary);
+  background: rgba(200, 130, 9, 0.2);
+  padding: 8px 16px;
+  border-radius: var(--vk-radius-pill);
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
-.section-header__title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+.difference__title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   line-height: 1.1;
-  margin-bottom: 16px;
+  color: var(--vk-white);
 }
 
-.section-header__subtitle {
-  font-size: 1.1rem;
-  color: var(--vk-n700);
-  max-width: 600px;
-  margin: 0 auto;
+.difference__title span {
+  color: var(--vk-primary);
+  font-style: italic;
 }
 
-.diff-grid {
+/* Card Grid */
+.difference__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .diff-grid {
+@media (max-width: 800px) {
+  .difference__grid {
     grid-template-columns: 1fr;
   }
 }
 
-.diff-card {
-  background: var(--vk-n0);
+.difference__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--vk-radius-xl);
   padding: 32px;
-  box-shadow: var(--vk-shadow-soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.diff-card:hover {
+.difference__card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--vk-shadow-medium);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.diff-card--them {
-  opacity: 0.7;
-  background: var(--vk-n50);
-  box-shadow: none;
+.difference__card-them,
+.difference__card-us {
+  flex: 1;
 }
 
-.diff-card--them:hover {
-  opacity: 0.85;
-  transform: none;
-  box-shadow: none;
-}
-
-.diff-card__label {
-  font-size: 0.7rem;
+.difference__label {
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   font-weight: 600;
-  color: #8A847B;
-  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-bottom: 8px;
 }
 
-.diff-card--us .diff-card__label {
+.difference__label--us {
   color: var(--vk-primary);
 }
 
-.diff-card__title {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
+.difference__card-them p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
 }
 
-.diff-card__text {
-  font-size: 0.95rem;
-  color: var(--vk-n700);
+.difference__card-us p {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--vk-white);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.difference__card-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--vk-primary);
+  color: var(--vk-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 /* Reveal Animation */

@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   padding: 120px 0 80px;
@@ -8,8 +8,8 @@
 
 .hero__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 65% 35%;
+  gap: 40px;
   align-items: center;
 }
 
@@ -34,13 +34,14 @@
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.05;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
   margin-bottom: 24px;
 }
 
 .hero__title span {
   color: var(--vk-primary);
+  font-style: italic;
 }
 
 .hero__subtitle {
@@ -76,72 +77,48 @@
   align-items: center;
 }
 
-/* Animated circles visual */
-.circles {
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
-
-@media (max-width: 900px) {
-  .circles {
-    width: 280px;
-    height: 280px;
-  }
-}
-
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.circle--1 {
-  width: 200px;
-  height: 200px;
-  background: var(--vk-secondary);
-  top: 20%;
-  right: 10%;
-  animation-delay: 0s;
-}
-
-.circle--2 {
-  width: 150px;
-  height: 150px;
-  background: var(--vk-primary);
-  bottom: 15%;
-  left: 15%;
-  animation-delay: -2s;
+/* Stats */
+.hero__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  background: var(--vk-n0);
+  border-radius: var(--vk-radius-xl);
   box-shadow: var(--vk-shadow-medium);
 }
 
-.circle--3 {
-  width: 80px;
-  height: 80px;
-  background: var(--vk-n100);
-  top: 10%;
-  left: 20%;
-  animation-delay: -4s;
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.circle--4 {
-  width: 60px;
-  height: 60px;
-  border: 3px solid var(--vk-primary);
-  background: transparent;
-  bottom: 30%;
-  right: 20%;
-  animation-delay: -1s;
+.hero__stat-number {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  color: var(--vk-primary);
+  line-height: 1;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+.hero__stat-label {
+  font-size: 0.95rem;
+  color: var(--vk-n700);
 }
 
 @media (max-width: 900px) {
-  .circle--1 { width: 140px; height: 140px; }
-  .circle--2 { width: 100px; height: 100px; }
-  .circle--3 { width: 50px; height: 50px; }
-  .circle--4 { width: 40px; height: 40px; }
+  .hero__stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    padding: 32px;
+  }
+
+  .hero__stat {
+    text-align: center;
+  }
+
+  .hero__stat-number {
+    font-size: 1.6rem;
+  }
 }

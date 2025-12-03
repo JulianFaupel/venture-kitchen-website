@@ -32,7 +32,7 @@ export default function Tracks() {
           <div className="track-card reveal" ref={el => refs.current[1] = el}>
             <span className="track-card__number">01</span>
             <p className="track-card__eyebrow">Digitalisierung</p>
-            <h3 className="track-card__title">Für etablierte Unternehmen</h3>
+            <h3 className="track-card__title">Effizienzsteigerung durch Digitalisierung</h3>
             <p className="track-card__text">Custom Software, die sich an echte Business-Logik anpasst und messbare Wettbewerbsvorteile schafft.</p>
             <ul className="track-card__list">
               <li>KMU und Mittelständler</li>
@@ -43,7 +43,7 @@ export default function Tracks() {
           <div className="track-card reveal" ref={el => refs.current[2] = el}>
             <span className="track-card__number">02</span>
             <p className="track-card__eyebrow">Neue Geschäftsmodelle</p>
-            <h3 className="track-card__title">MVP & Validierung</h3>
+            <h3 className="track-card__title">Prototypen und neue Geschäftsmodelle</h3>
             <p className="track-card__text">Gemeinsames Schärfen des Geschäftsmodells und MVP-Entwicklung mit Fokus auf echte Validierung.</p>
             <ul className="track-card__list">
               <li>Startups ohne Tech-Team</li>

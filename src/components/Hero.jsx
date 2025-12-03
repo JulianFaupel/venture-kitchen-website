@@ -6,24 +6,27 @@ export default function Hero() {
       <div className="page">
         <div className="hero__content">
           <div className="hero__text">
-            <span className="hero__eyebrow">Software-Agentur</span>
             <h1 className="hero__title">
-              Wir entwickeln Software wie <span>Unternehmer</span>, nicht wie Entwickler.
+              Wir bauen Software,<br />die Ihr <span>Geschäft</span> versteht.
             </h1>
             <p className="hero__subtitle">
-              Die meisten Agenturen setzen um, was man ihnen sagt. Wir verstehen erst Ihr Geschäft – und bauen dann die richtige Lösung.
+              Keine Agentur, die Tickets abarbeitet. Wir sind Sparringspartner – von der Idee bis zum Produkt, das Nutzer lieben und das sich rechnet.
             </p>
             <div className="hero__btns">
-              <a href="#contact" className="btn btn-primary">Projekt besprechen</a>
-              <a href="#difference" className="btn btn-secondary">Der Unterschied</a>
+              <a href="#contact" className="btn btn-primary">Kostenloses Erstgespräch</a>
+              <a href="#case" className="btn btn-secondary">Beispielprojekt ansehen</a>
             </div>
           </div>
           <div className="hero__visual">
-            <div className="circles">
-              <div className="circle circle--1"></div>
-              <div className="circle circle--2"></div>
-              <div className="circle circle--3"></div>
-              <div className="circle circle--4"></div>
+            <div className="hero__stats">
+              <div className="hero__stat">
+                <span className="hero__stat-number">2 Wochen</span>
+                <span className="hero__stat-label">bis zum ersten Prototyp</span>
+              </div>
+              <div className="hero__stat">
+                <span className="hero__stat-number">5+ Jahre</span>
+                <span className="hero__stat-label">Erfahrung in Produkt & Tech</span>
+              </div>
             </div>
           </div>
         </div>
