@@ -1,110 +1,303 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');
 
-:root {
-  --vk-primary: #C88209;
-  --vk-secondary: #D8D2CA;
-  --vk-white: #FFFFFF;
-  --vk-text-main: #545454;
-  --vk-n0: #FFFFFF;
-  --vk-n25: #F7F5F2;
-  --vk-n50: #EEEAE4;
-  --vk-n100: #E1DBD2;
-  --vk-n200: #CFC7BD;
-  --vk-n700: #545454;
-  --vk-n900: #262626;
-  --vk-primary-soft: #F4DFBE;
-  --vk-primary-strong: #9F6605;
-  --vk-radius-sm: 6px;
-  --vk-radius-md: 12px;
-  --vk-radius-lg: 20px;
-  --vk-radius-xl: 28px;
-  --vk-radius-pill: 999px;
-  --vk-shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.06);
-  --vk-shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.10);
-  --vk-page-max-width: 1200px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  h1 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: -0.5px;
+  }
+  h2 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: -0.5px;
+  }
+  h3, h4, h5, h6 {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+  }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #F700FF 0%, #a855f7 100%);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 18px;
+.logo-gradient-text {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #f700ff 0%, rgba(124, 128, 234, 1) 65%, #00ffd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-body {
-  font-family: "Glacial Indifference", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--vk-text-main);
-  background: var(--vk-n25);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
-  overflow-x: hidden;
+.logo-gradient-text-large {
+  font-family: 'Figtree', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  background: linear-gradient(90deg, #f700ff 0%, rgba(124, 128, 234, 1) 65%, #00ffd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-h1, h2, h3, h4 {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  color: var(--vk-n900);
-  letter-spacing: -0.02em;
+.logo-kitchen {
+  letter-spacing: 6px;
 }
 
-.page {
-  max-width: var(--vk-page-max-width);
-  margin: 0 auto;
-  padding: 0 24px;
+.logo-dot {
+  background: linear-gradient(90deg, #00c4ff 0%, #00ffd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  left: 100%;
+  margin-left: 2px;
 }
 
-/* Buttons */
-.btn {
-  border-radius: var(--vk-radius-pill);
-  border: 1px solid transparent;
-  padding: 14px 28px;
-  font-size: 0.9rem;
+.gradient-border {
+  position: relative;
+  border-radius: 0.625rem;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #F700FF 0%, #0080FF 100%) border-box;
+  border: 2px solid transparent;
+}
+
+.card-shadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 24px;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-button {
+  background-image: url('/button-shine-overlay.png'), linear-gradient(90deg, #f700ff 0%, rgba(124, 128, 234, 1) 65%, #00ffd4 100%);
+  background-size: cover, cover;
+  background-position: center, center;
+  font-family: 'Figtree', sans-serif;
   font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 18px -6px rgba(247, 0, 255, 0.3);
 }
 
 .btn-primary {
-  background: var(--vk-primary);
-  color: var(--vk-white);
-  box-shadow: var(--vk-shadow-soft);
+  @apply text-white px-6 py-3 rounded-full font-semibold transition-all;
+  background-image: url('/button-shine-overlay.png'), linear-gradient(90deg, #f700ff 0%, rgba(124, 128, 234, 1) 65%, #00ffd4 100%);
+  background-size: cover, cover;
+  background-position: center, center;
 }
 
 .btn-primary:hover {
-  background: var(--vk-primary-strong);
   transform: translateY(-2px);
-  box-shadow: var(--vk-shadow-medium);
+  box-shadow: 0px 12px 18px -6px rgba(247, 0, 255, 0.3);
 }
 
-.btn-secondary {
-  background: var(--vk-white);
-  color: var(--vk-n900);
-  border-color: var(--vk-n200);
+.btn-outline {
+  @apply border-2 bg-transparent px-6 py-3 rounded-full transition-all;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 600;
 }
 
-.btn-secondary:hover {
-  background: var(--vk-n50);
-  transform: translateY(-1px);
+.btn-outline:hover {
+  @apply text-white;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-.btn-light {
-  background: var(--vk-white);
-  color: var(--vk-n900);
+.numbered-step {
+  counter-increment: step;
 }
 
-.btn-light:hover {
-  background: var(--vk-n50);
-  transform: translateY(-2px);
+.numbered-step::before {
+  content: counter(step);
+  @apply absolute -left-16 top-0 text-7xl font-bold;
+  color: #e6eeed;
+  z-index: -1;
+}
+
+.hero-background {
+  position: relative;
+  background-color: #1B2134;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27, 33, 52, 0.95), rgba(40, 48, 70, 0.9));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating Mockup Animation */
+.floating-mockup {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Mockup Transformation Animation - 10s total */
+.mockup-ugly {
+  animation: showUgly 10s ease-in-out infinite;
+}
+
+.mockup-transform {
+  animation: showTransform 10s ease-in-out infinite;
+}
+
+.mockup-nice {
+  animation: showNice 10s ease-in-out infinite;
+}
+
+/* Phase 1: Ugly (0-35%) - 3.5s sichtbar */
+@keyframes showUgly {
+  0%, 32% {
+    opacity: 1;
+  }
+  35%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Phase 2: Transform (35-55%) - 2s sichtbar */
+@keyframes showTransform {
+  0%, 32% {
+    opacity: 0;
+  }
+  35%, 52% {
+    opacity: 1;
+  }
+  55%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Phase 3: Nice (55-100%) - 4.5s sichtbar */
+@keyframes showNice {
+  0%, 52% {
+    opacity: 0;
+  }
+  55%, 97% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Logo Spin Animation - mehr Dramatik */
+.logo-spin {
+  animation: logoSpin 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes logoSpin {
+  0% {
+    transform: rotate(0deg) scale(0.5);
+    opacity: 0.5;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+.icon-box {
+  @apply w-18 h-18 flex items-center justify-center;
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.icon-box svg {
+  width: 36px;
+  height: 36px;
+}
+
+.icon-box svg {
+  @apply w-8 h-8;
+}
+
+/* Neon Gradient Icons */
+.icon-neon-pink svg {
+  stroke: url(#neon-pink-gradient) !important;
+  color: transparent;
+}
+
+.icon-neon-yellow svg {
+  stroke: url(#neon-yellow-gradient) !important;
+  color: transparent;
+}
+
+.icon-neon-blue svg {
+  stroke: url(#neon-blue-gradient) !important;
+  color: transparent;
+}
+
+.icon-neon-green svg {
+  stroke: url(#neon-green-gradient) !important;
+  color: transparent;
+}
+
+.icon-neon-cyan svg {
+  stroke: url(#neon-cyan-gradient) !important;
+  color: transparent;
+}
+
+.section-heading {
+  @apply font-rubik font-bold text-primary;
+  border-bottom: 3px solid #F700FF;
+  display: inline-block;
+  padding-bottom: 8px;
 }
