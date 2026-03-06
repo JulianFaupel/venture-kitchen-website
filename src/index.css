@@ -363,3 +363,14 @@
 .hero-data-packet {
   animation: dataPacketFlow 3s ease-in-out infinite;
 }
+
+.hero-data-packet-vertical {
+  animation: dataPacketFlowVertical 3s ease-in-out infinite;
+}
+
+@keyframes dataPacketFlowVertical {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(calc(100% + 24px)); opacity: 0; }
+}

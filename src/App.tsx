@@ -36,7 +36,7 @@ function App() {
   const navLinks = [
     { id: 'home', label: 'Home', href: '#' },
     { id: 'process', label: 'So funktioniert\'s', href: '#process' },
-    { id: 'usecases', label: 'Anwendungsfälle', href: '#usecases' },
+    { id: 'usecases', label: 'Anwendungsbereiche', href: '#usecases' },
     { id: 'contact', label: 'Kontakt', href: '/kontakt', isRoute: true }
   ];
 
@@ -201,177 +201,176 @@ function App() {
                 </div>
               </div>
 
-              {/* Right: Animated Process Pipeline */}
+              {/* Right: Workflow Diagram */}
               <div className="flex-1 relative h-[420px] w-full max-w-lg hidden lg:block">
                 
-                {/* Floating particles background */}
-                <div className="absolute inset-0">
-                  {[...Array(6)].map((_, i) => (
-                    <div 
-                      key={i}
-                      className="absolute w-1 h-1 bg-accent/40 rounded-full"
-                      style={{
-                        left: `${20 + i * 15}%`,
-                        top: `${10 + (i % 3) * 30}%`,
-                        animation: `float ${3 + i * 0.5}s ease-in-out infinite alternate`,
-                        animationDelay: `${i * 0.3}s`
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Pipeline: 3 stages stacked with animated data packets flowing through */}
-                <div className="absolute inset-0 flex flex-col justify-center gap-4">
-                  
-                  {/* Pipeline Row 1: Invoice */}
-                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '0s' }}>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <FileText className="w-5 h-5 text-red-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
-                        <div className="text-sm font-semibold text-white">Rechnung.pdf</div>
-                      </div>
-                    </div>
-                    <div className="flex-1 relative h-[2px] overflow-hidden">
-                      <div className="absolute inset-0 bg-white/10"></div>
-                      <div className="hero-data-packet bg-gradient-to-r from-accent to-[#0080FF] h-full w-8 rounded-full" style={{ animationDelay: '0.2s' }}></div>
-                    </div>
-                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <Zap className="w-5 h-5 text-accent" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
-                        <div className="text-sm font-semibold text-white">→ ERP gebucht</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pipeline Row 2: Email */}
-                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '0.8s' }}>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <Mail className="w-5 h-5 text-blue-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
-                        <div className="text-sm font-semibold text-white">Kundenanfrage</div>
-                      </div>
-                    </div>
-                    <div className="flex-1 relative h-[2px] overflow-hidden">
-                      <div className="absolute inset-0 bg-white/10"></div>
-                      <div className="hero-data-packet bg-gradient-to-r from-[#0080FF] to-[#00c4ff] h-full w-8 rounded-full" style={{ animationDelay: '1.0s' }}></div>
-                    </div>
-                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <Check className="w-5 h-5 text-green-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
-                        <div className="text-sm font-semibold text-white">→ CRM + Antwort</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pipeline Row 3: Data */}
-                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '1.6s' }}>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <Database className="w-5 h-5 text-purple-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
-                        <div className="text-sm font-semibold text-white">3 Datenquellen</div>
-                      </div>
-                    </div>
-                    <div className="flex-1 relative h-[2px] overflow-hidden">
-                      <div className="absolute inset-0 bg-white/10"></div>
-                      <div className="hero-data-packet bg-gradient-to-r from-purple-500 to-accent h-full w-8 rounded-full" style={{ animationDelay: '1.8s' }}></div>
-                    </div>
-                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <BarChart3 className="w-5 h-5 text-cyan-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
-                        <div className="text-sm font-semibold text-white">→ Live Report</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pipeline Row 4: Document */}
-                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '2.4s' }}>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <MessageSquare className="w-5 h-5 text-yellow-400" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
-                        <div className="text-sm font-semibold text-white">Spracheingabe</div>
-                      </div>
-                    </div>
-                    <div className="flex-1 relative h-[2px] overflow-hidden">
-                      <div className="absolute inset-0 bg-white/10"></div>
-                      <div className="hero-data-packet bg-gradient-to-r from-yellow-500 to-accent h-full w-8 rounded-full" style={{ animationDelay: '2.6s' }}></div>
-                    </div>
-                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
-                      <FileCode className="w-5 h-5 text-accent" />
-                      <div>
-                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
-                        <div className="text-sm font-semibold text-white">→ Dokument</div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
                 {/* Decorative gradient blob */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-accent/5 to-[#0080FF]/5 rounded-full blur-3xl -z-10"></div>
+
+                {/* Workflow: Connected nodes like a real process diagram */}
+                <div className="absolute inset-0 flex flex-col justify-center">
+                  
+                  {/* Top row: 3 Input sources feeding into center */}
+                  <div className="flex justify-between items-end mb-2 px-4">
+                    {[
+                      { icon: Mail, label: 'E-Mail', color: 'text-blue-400', delay: '0s' },
+                      { icon: FileText, label: 'Dokument', color: 'text-red-400', delay: '0.3s' },
+                      { icon: Database, label: 'System', color: 'text-purple-400', delay: '0.6s' },
+                    ].map((input, i) => {
+                      const Icon = input.icon;
+                      return (
+                        <div key={i} className="flex flex-col items-center hero-pipeline-row" style={{ animationDelay: input.delay }}>
+                          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3 flex flex-col items-center gap-1 w-[100px]">
+                            <Icon className={`w-5 h-5 ${input.color}`} />
+                            <span className="text-xs text-white/70">{input.label}</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Connector lines down to processing */}
+                  <div className="flex justify-between items-center px-4 h-10 relative">
+                    {[0, 1, 2].map(i => (
+                      <div key={i} className="flex flex-col items-center w-[100px]">
+                        <div className="w-[2px] h-10 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-white/10"></div>
+                          <div className="hero-data-packet-vertical bg-gradient-to-b from-accent to-[#0080FF] w-full h-3 rounded-full" style={{ animationDelay: `${i * 0.3 + 0.5}s` }}></div>
+                        </div>
+                      </div>
+                    ))}
+                    {/* Horizontal connector line */}
+                    <div className="absolute top-[40px] left-[50px] right-[50px] h-[2px] bg-white/10"></div>
+                  </div>
+
+                  {/* Central merge point */}
+                  <div className="flex justify-center mb-2">
+                    <div className="w-[2px] h-6 bg-white/10 relative overflow-hidden">
+                      <div className="hero-data-packet-vertical bg-gradient-to-b from-[#0080FF] to-accent w-full h-3 rounded-full" style={{ animationDelay: '1.2s' }}></div>
+                    </div>
+                  </div>
+
+                  {/* Processing node - center */}
+                  <div className="flex justify-center mb-2 hero-pipeline-row" style={{ animationDelay: '0.9s' }}>
+                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/40 rounded-xl px-6 py-4 flex items-center gap-3 shadow-lg shadow-accent/10">
+                      <div className="w-10 h-10 rounded-lg bg-accent/30 flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-accent" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-accent/70 uppercase tracking-wider font-semibold">Venture Kitchen</div>
+                        <div className="text-sm font-semibold text-white">Erfassen → Prüfen → Verarbeiten</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connector lines down to outputs */}
+                  <div className="flex justify-center mb-2">
+                    <div className="w-[2px] h-6 bg-white/10 relative overflow-hidden">
+                      <div className="hero-data-packet-vertical bg-gradient-to-b from-accent to-green-400 w-full h-3 rounded-full" style={{ animationDelay: '1.8s' }}></div>
+                    </div>
+                  </div>
+
+                  {/* Horizontal split line */}
+                  <div className="relative h-[2px] mx-auto" style={{ width: '260px' }}>
+                    <div className="absolute inset-0 bg-white/10"></div>
+                  </div>
+
+                  {/* Connector lines to outputs */}
+                  <div className="flex justify-between items-center h-6 mx-auto" style={{ width: '260px' }}>
+                    {[0, 1, 2].map(i => (
+                      <div key={i} className="flex flex-col items-center">
+                        <div className="w-[2px] h-6 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-white/10"></div>
+                          <div className="hero-data-packet-vertical bg-gradient-to-b from-green-400 to-cyan-400 w-full h-3 rounded-full" style={{ animationDelay: `${2.0 + i * 0.2}s` }}></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Bottom row: 3 Output results */}
+                  <div className="flex justify-between items-start px-4 mt-2">
+                    {[
+                      { icon: Check, label: 'Gebucht', sublabel: 'ERP/DATEV', color: 'text-green-400', delay: '2.2s' },
+                      { icon: BarChart3, label: 'Report', sublabel: 'Dashboard', color: 'text-cyan-400', delay: '2.5s' },
+                      { icon: Zap, label: 'Aktion', sublabel: 'Automatisch', color: 'text-yellow-400', delay: '2.8s' },
+                    ].map((output, i) => {
+                      const Icon = output.icon;
+                      return (
+                        <div key={i} className="flex flex-col items-center hero-pipeline-row" style={{ animationDelay: output.delay }}>
+                          <div className="bg-green-500/10 backdrop-blur-sm border border-green-500/20 rounded-lg p-3 flex flex-col items-center gap-1 w-[100px]">
+                            <Icon className={`w-5 h-5 ${output.color}`} />
+                            <span className="text-xs font-semibold text-white">{output.label}</span>
+                            <span className="text-[10px] text-white/50">{output.sublabel}</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pain & Solution Section */}
+      {/* Typische Ausgangssituationen */}
       <section id="process" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 text-center">
-            Hier setzen wir an
+            Typische Ausgangssituationen
           </h2>
           <p className="text-text-medium text-lg text-center mb-16 max-w-2xl mx-auto">
-            Diese Probleme lösen wir täglich für unsere Kunden.
+            Kommt Ihnen das bekannt vor? Dann sollten wir sprechen.
           </p>
-          <div className="max-w-5xl mx-auto space-y-8">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
             {[
               {
-                pain: 'Ihr Team tippt Daten manuell von A nach B.',
-                solution: 'Wir übernehmen den Prozess und automatisieren ihn — Sie bekommen nur noch das Ergebnis.',
-                painIcon: Users,
-                solutionIcon: Zap
+                icon: Users,
+                title: 'Fachkräfte für Stumpfsinn',
+                description: 'Ihre besten Leute verbringen Stunden mit Abtippen, Kopieren, Sortieren — Arbeit, die kein Mensch machen sollte.',
+                color: 'pink'
               },
               {
-                pain: 'Fehler in der Datenverarbeitung kosten Sie Geld.',
-                solution: 'Automatisierte Prüfungen und Abgleiche eliminieren menschliche Fehler — zuverlässig und nachvollziehbar.',
-                painIcon: Target,
-                solutionIcon: Shield
+                icon: Target,
+                title: 'Teure unsichtbare Fehler',
+                description: 'Vergessene Nachträge, falsche Zahlen, verlorene Mails. Fehler, die erst auffallen, wenn sie Geld kosten.',
+                color: 'yellow'
               },
               {
-                pain: 'IT-Projekte sind zu teuer, zu lang und zu riskant.',
-                solution: 'Kein Projekt. Wir starten sofort als Service — Sie sehen Ergebnisse in Tagen, nicht Monaten.',
-                painIcon: Clock,
-                solutionIcon: Rocket
+                icon: Clock,
+                title: 'Wachstum bremst statt beflügelt',
+                description: 'Was bei 5 Leuten funktioniert hat, bricht bei 15 zusammen. Mehr Umsatz, aber auch mehr Chaos.',
+                color: 'cyan'
+              },
+              {
+                icon: Settings,
+                title: 'Tool-Friedhof',
+                description: 'Software gekauft, Schulung gemacht, keiner nutzt es richtig. Das Problem ist geblieben, nur die Kosten sind gestiegen.',
+                color: 'blue'
+              },
+              {
+                icon: Brain,
+                title: 'Wissen in Köpfen, nicht im System',
+                description: 'Wenn Frau Müller krank ist, steht der Prozess still. Weil nur sie weiß, wie es geht.',
+                color: 'green'
+              },
+              {
+                icon: Scale,
+                title: 'Bauchgefühl statt Zahlen',
+                description: 'Entscheidungen ohne Datengrundlage, weil die Zahlen aus 3 Excel-Dateien zusammengesucht werden müssten.',
+                color: 'pink'
               }
             ].map((item, index) => {
-              const PainIcon = item.painIcon;
-              const SolutionIcon = item.solutionIcon;
+              const Icon = item.icon;
               return (
-                <div key={index} className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white p-8 rounded-2xl card-shadow flex items-start gap-4">
-                    <div className="icon-box icon-neon-pink flex-shrink-0">
-                      <PainIcon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-accent mb-1">Das Problem</p>
-                      <p className="text-lg font-semibold text-primary">{item.pain}</p>
-                    </div>
+                <div key={index} className="bg-white p-8 rounded-2xl card-shadow hover-lift flex items-start gap-5">
+                  <div className={`icon-box icon-neon-${item.color} flex-shrink-0`}>
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <div className="bg-white p-8 rounded-2xl card-shadow flex items-start gap-4">
-                    <div className="icon-box icon-neon-cyan flex-shrink-0">
-                      <SolutionIcon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-green-600 mb-1">Unsere Lösung</p>
-                      <p className="text-lg text-text-medium">{item.solution}</p>
-                    </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
+                    <p className="text-text-medium">{item.description}</p>
                   </div>
                 </div>
               );
