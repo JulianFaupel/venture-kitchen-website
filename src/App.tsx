@@ -201,57 +201,120 @@ function App() {
                 </div>
               </div>
 
-              {/* Right: Process Flow Visual - Simple */}
+              {/* Right: Animated Process Pipeline */}
               <div className="flex-1 relative h-[420px] w-full max-w-lg hidden lg:block">
                 
-                {/* Central Cloud */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-20 bg-white rounded-2xl shadow-2xl flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <Cloud className="w-8 h-8 text-accent mx-auto mb-1" />
-                    <div className="text-xs font-semibold text-primary">VK Cloud</div>
+                {/* Floating particles background */}
+                <div className="absolute inset-0">
+                  {[...Array(6)].map((_, i) => (
+                    <div 
+                      key={i}
+                      className="absolute w-1 h-1 bg-accent/40 rounded-full"
+                      style={{
+                        left: `${20 + i * 15}%`,
+                        top: `${10 + (i % 3) * 30}%`,
+                        animation: `float ${3 + i * 0.5}s ease-in-out infinite alternate`,
+                        animationDelay: `${i * 0.3}s`
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Pipeline: 3 stages stacked with animated data packets flowing through */}
+                <div className="absolute inset-0 flex flex-col justify-center gap-4">
+                  
+                  {/* Pipeline Row 1: Invoice */}
+                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '0s' }}>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <FileText className="w-5 h-5 text-red-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
+                        <div className="text-sm font-semibold text-white">Rechnung.pdf</div>
+                      </div>
+                    </div>
+                    <div className="flex-1 relative h-[2px] overflow-hidden">
+                      <div className="absolute inset-0 bg-white/10"></div>
+                      <div className="hero-data-packet bg-gradient-to-r from-accent to-[#0080FF] h-full w-8 rounded-full" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <Zap className="w-5 h-5 text-accent" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
+                        <div className="text-sm font-semibold text-white">→ ERP gebucht</div>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Input Cards - Left Side */}
-                <div className="absolute left-0 top-16 space-y-3">
-                  {[
-                    { icon: FileText, label: 'PDFs' },
-                    { icon: Mail, label: 'E-Mails' },
-                    { icon: Database, label: 'ERP/CRM' }
-                  ].map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <div key={i} className="bg-white/90 rounded-lg p-3 shadow-lg flex items-center gap-2 text-xs w-24">
-                        <Icon className="w-4 h-4 text-accent" />
-                        <span className="font-medium text-primary">{item.label}</span>
+                  {/* Pipeline Row 2: Email */}
+                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '0.8s' }}>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <Mail className="w-5 h-5 text-blue-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
+                        <div className="text-sm font-semibold text-white">Kundenanfrage</div>
                       </div>
-                    );
-                  })}
-                </div>
-
-                {/* Output Cards - Right Side */}
-                <div className="absolute right-0 top-16 space-y-3">
-                  {[
-                    { icon: Settings, label: 'Reports' },
-                    { icon: Globe, label: 'Web App' },
-                    { icon: BarChart3, label: 'Analytics' }
-                  ].map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <div key={i} className="bg-white/90 rounded-lg p-3 shadow-lg flex items-center gap-2 text-xs w-24">
-                        <Icon className="w-4 h-4 text-accent" />
-                        <span className="font-medium text-primary">{item.label}</span>
+                    </div>
+                    <div className="flex-1 relative h-[2px] overflow-hidden">
+                      <div className="absolute inset-0 bg-white/10"></div>
+                      <div className="hero-data-packet bg-gradient-to-r from-[#0080FF] to-[#00c4ff] h-full w-8 rounded-full" style={{ animationDelay: '1.0s' }}></div>
+                    </div>
+                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <Check className="w-5 h-5 text-green-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
+                        <div className="text-sm font-semibold text-white">→ CRM + Antwort</div>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  </div>
 
-                {/* Connecting Lines */}
-                <div className="absolute top-1/2 left-28 w-12 h-0.5 bg-gradient-to-r from-accent to-transparent -translate-y-1/2"></div>
-                <div className="absolute top-1/2 right-28 w-12 h-0.5 bg-gradient-to-l from-accent to-transparent -translate-y-1/2"></div>
+                  {/* Pipeline Row 3: Data */}
+                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '1.6s' }}>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <Database className="w-5 h-5 text-purple-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
+                        <div className="text-sm font-semibold text-white">3 Datenquellen</div>
+                      </div>
+                    </div>
+                    <div className="flex-1 relative h-[2px] overflow-hidden">
+                      <div className="absolute inset-0 bg-white/10"></div>
+                      <div className="hero-data-packet bg-gradient-to-r from-purple-500 to-accent h-full w-8 rounded-full" style={{ animationDelay: '1.8s' }}></div>
+                    </div>
+                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <BarChart3 className="w-5 h-5 text-cyan-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
+                        <div className="text-sm font-semibold text-white">→ Live Report</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pipeline Row 4: Document */}
+                  <div className="flex items-center gap-3 hero-pipeline-row" style={{ animationDelay: '2.4s' }}>
+                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <MessageSquare className="w-5 h-5 text-yellow-400" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Eingang</div>
+                        <div className="text-sm font-semibold text-white">Spracheingabe</div>
+                      </div>
+                    </div>
+                    <div className="flex-1 relative h-[2px] overflow-hidden">
+                      <div className="absolute inset-0 bg-white/10"></div>
+                      <div className="hero-data-packet bg-gradient-to-r from-yellow-500 to-accent h-full w-8 rounded-full" style={{ animationDelay: '2.6s' }}></div>
+                    </div>
+                    <div className="bg-accent/20 backdrop-blur-sm border border-accent/30 rounded-xl px-4 py-3 flex items-center gap-3 min-w-[140px]">
+                      <FileCode className="w-5 h-5 text-accent" />
+                      <div>
+                        <div className="text-[10px] text-white/50 uppercase tracking-wider">Verarbeitet</div>
+                        <div className="text-sm font-semibold text-white">→ Dokument</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
 
                 {/* Decorative gradient blob */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-br from-accent/10 to-[#0080FF]/10 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-accent/5 to-[#0080FF]/5 rounded-full blur-3xl -z-10"></div>
               </div>
             </div>
           </div>
@@ -262,7 +325,7 @@ function App() {
       <section id="process" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 text-center">
-            Kennen Sie das?
+            Hier setzen wir an
           </h2>
           <p className="text-text-medium text-lg text-center mb-16 max-w-2xl mx-auto">
             Diese Probleme lösen wir täglich für unsere Kunden.

@@ -336,3 +336,30 @@
     transform: rotate(-3deg) translateY(-8px);
   }
 }
+
+/* Hero Pipeline Animation */
+@keyframes float {
+  0% { transform: translateY(0px); opacity: 0.3; }
+  100% { transform: translateY(-10px); opacity: 0.7; }
+}
+
+@keyframes pipelineSlideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dataPacketFlow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(calc(100vw)); opacity: 0; }
+}
+
+.hero-pipeline-row {
+  opacity: 0;
+  animation: pipelineSlideIn 0.6s ease-out forwards;
+}
+
+.hero-data-packet {
+  animation: dataPacketFlow 3s ease-in-out infinite;
+}
