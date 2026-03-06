@@ -186,10 +186,10 @@ function App() {
               {/* Left: Text Content */}
               <div className="max-w-3xl flex-1">
                 <h1 className="text-5xl lg:text-6xl text-white mb-6 leading-tight font-bold">
-                  Wir automatisieren Ihre Prozesse.<br />Sie konzentrieren sich aufs Geschäft.
+                  Prozessautomatisierung<br />als Service.
                 </h1>
                 <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
-                  Kein IT-Projekt. Kein Risiko. Wir übernehmen Ihre manuellen Workflows als Service — powered by Software und KI.
+                  Wir übernehmen Ihre manuellen Geschäftsprozesse und betreiben sie besser, schneller und günstiger. Wie ein Steuerberater — aber für Ihre operativen Abläufe.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <Link
@@ -554,7 +554,7 @@ function App() {
               Warum Venture Kitchen?
             </h2>
             <p className="text-text-medium text-lg leading-relaxed">
-              Wir sind anders als klassische IT-Dienstleister. Wir denken unternehmerisch und liefern Ergebnisse, nicht nur Code.
+              Wir sind kein IT-Dienstleister. Wir sind Ihr ausgelagertes Operations-Team — mit Technologie als Hebel, nicht als Produkt.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -562,8 +562,8 @@ function App() {
               <div className="icon-box mb-6 mx-auto icon-neon-pink">
                 <Lightbulb className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">Wir denken wie Gründer</h3>
-              <p className="text-text-medium">Unternehmerisch, nicht Dienstleister</p>
+              <h3 className="text-lg font-semibold text-primary mb-3">Kein IT-Projekt</h3>
+              <p className="text-text-medium">Sie liefern den Input, wir liefern das Ergebnis. Wie beim Steuerberater.</p>
             </div>
             <div className="text-center">
               <div className="icon-box mb-6 mx-auto icon-neon-yellow">
@@ -576,15 +576,15 @@ function App() {
               <div className="icon-box mb-6 mx-auto icon-neon-cyan">
                 <Shield className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">Service statt Software</h3>
-              <p className="text-text-medium">Sie brauchen kein neues Tool zu lernen</p>
+              <h3 className="text-lg font-semibold text-primary mb-3">Kein neues Tool lernen</h3>
+              <p className="text-text-medium">Wir passen uns Ihren Systemen an — nicht umgekehrt</p>
             </div>
             <div className="text-center">
               <div className="icon-box mb-6 mx-auto icon-neon-blue">
                 <Brain className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">KI-First</h3>
-              <p className="text-text-medium">Wir nutzen KI wo es Sinn macht, nicht als Buzzword</p>
+              <h3 className="text-lg font-semibold text-primary mb-3">Marge steigt, Kosten sinken</h3>
+              <p className="text-text-medium">Über Zeit automatisieren wir immer mehr — Ihr Preis bleibt, unsere Effizienz steigt</p>
             </div>
           </div>
         </div>
@@ -675,7 +675,7 @@ function App() {
                 <span className="logo-gradient-text">VENTURE KITCHEN.</span>
               </div>
               <p className="text-neutral-light mb-6">
-                Wir automatisieren Ihre Prozesse. Sie konzentrieren sich aufs Geschäft.
+                Prozessautomatisierung als Service. Wir übernehmen Ihre manuellen Abläufe und betreiben sie besser, schneller, günstiger.
               </p>
               <div className="flex space-x-4">
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-neutral-light hover:text-white transition-colors">
