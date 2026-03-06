@@ -189,7 +189,7 @@ function App() {
                   Prozessautomatisierung<br />als Service.
                 </h1>
                 <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
-                  Sie liefern den Input, wir liefern das Ergebnis. Kein Projekt, kein Risiko, kein neues Tool.
+                  Wir übernehmen Ihre manuellen Geschäftsprozesse und betreiben sie besser, schneller und günstiger. Sie liefern den Input, wir liefern das Ergebnis.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <Link
