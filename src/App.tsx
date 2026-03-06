@@ -128,7 +128,7 @@ function App() {
                 to="/kontakt"
                 className="gradient-button text-white px-6 py-3 rounded-lg font-semibold text-base"
               >
-                Kostenlose Prozessanalyse
+                Kostenloses Erstgespräch
               </Link>
             </div>
 
@@ -172,7 +172,7 @@ function App() {
               onClick={() => setIsMenuOpen(false)}
               className="gradient-button text-white px-6 py-3 rounded-lg font-semibold text-center"
             >
-              Kostenlose Prozessanalyse
+              Kostenloses Erstgespräch
             </Link>
           </div>
         </div>
@@ -196,7 +196,7 @@ function App() {
                     to="/kontakt"
                     className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg"
                   >
-                    Kostenlose Prozessanalyse
+                    Kostenloses Erstgespräch
                   </Link>
                 </div>
               </div>
@@ -649,7 +649,7 @@ function App() {
               Lassen Sie uns über Ihren Prozess sprechen.
             </h2>
             <p className="text-xl text-text-medium mb-8 leading-relaxed">
-              Kostenlose Prozessanalyse — wir zeigen Ihnen in 30 Minuten, wo Ihre größten Automatisierungshebel liegen.
+              Kostenloses Erstgespräch — wir zeigen Ihnen in 30 Minuten, wo Ihre größten Automatisierungshebel liegen.
             </p>
             <Link
               to="/kontakt"
