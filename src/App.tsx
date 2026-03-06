@@ -446,37 +446,43 @@ function App() {
                 icon: FileText,
                 title: 'Dokumentenverarbeitung',
                 description: 'Rechnungen, Verträge und Formulare automatisch erfassen, prüfen und ins richtige System übertragen.',
-                color: 'pink'
+                color: 'pink',
+                slug: 'dokumentenverarbeitung'
               },
               {
                 icon: BarChart3,
                 title: 'Reporting & Datenabgleich',
                 description: 'Daten aus verschiedenen Systemen zusammenführen — automatisch, fehlerfrei, in Echtzeit.',
-                color: 'yellow'
+                color: 'yellow',
+                slug: 'reporting'
               },
               {
                 icon: FileCode,
                 title: 'Angebotserstellung',
                 description: 'Vom Angebot zur Rechnung — ohne Copy-Paste, ohne veraltete Preise, ohne Fehler.',
-                color: 'cyan'
+                color: 'cyan',
+                slug: 'angebotserstellung'
               },
               {
                 icon: Users,
                 title: 'Onboarding & Checklisten',
                 description: 'Kunden- oder Mitarbeiter-Onboarding strukturiert automatisieren. Kein Schritt wird vergessen.',
-                color: 'blue'
+                color: 'blue',
+                slug: 'onboarding'
               },
               {
                 icon: Mail,
                 title: 'E-Mail & Posteingang',
                 description: 'Eingehende Anfragen automatisch sortieren, kategorisieren und an die richtige Stelle weiterleiten.',
-                color: 'green'
+                color: 'green',
+                slug: 'email-posteingang'
               },
               {
                 icon: Brain,
                 title: 'KI im Unternehmen',
                 description: 'ChatGPT & Co. datenschutzkonform einsetzen — an Ihre eigenen Daten angebunden, on-premise oder Cloud.',
-                color: 'pink'
+                color: 'pink',
+                slug: 'ki-unternehmen'
               }
             ].map((usecase, index) => {
               const Icon = usecase.icon;
@@ -486,7 +492,10 @@ function App() {
                     <Icon className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-semibold text-primary mb-3">{usecase.title}</h3>
-                  <p className="text-text-medium">{usecase.description}</p>
+                  <p className="text-text-medium mb-4">{usecase.description}</p>
+                  <Link to={`/anwendungsbereiche/${usecase.slug}`} className="text-accent font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                    Mehr erfahren <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               );
             })}
