@@ -189,7 +189,7 @@ function App() {
                   Prozessautomatisierung<br />als Service.
                 </h1>
                 <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
-                  Wir übernehmen Ihre manuellen Geschäftsprozesse und betreiben sie besser, schneller und günstiger. Wie ein Steuerberater — aber für Ihre operativen Abläufe.
+                  Sie liefern den Input, wir liefern das Ergebnis. Kein Projekt, kein Risiko, kein neues Tool.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <Link
@@ -563,7 +563,7 @@ function App() {
                 <Lightbulb className="w-8 h-8" />
               </div>
               <h3 className="text-lg font-semibold text-primary mb-3">Kein IT-Projekt</h3>
-              <p className="text-text-medium">Sie liefern den Input, wir liefern das Ergebnis. Wie beim Steuerberater.</p>
+              <p className="text-text-medium">Sie liefern den Input, wir liefern das Ergebnis. Kein Projekt, kein Risiko.</p>
             </div>
             <div className="text-center">
               <div className="icon-box mb-6 mx-auto icon-neon-yellow">
