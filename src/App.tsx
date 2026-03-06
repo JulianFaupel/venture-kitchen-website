@@ -258,176 +258,61 @@ function App() {
         </div>
       </section>
 
-      {/* Process Flow Section */}
-      <section id="process" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6 text-center">
-            So funktioniert's
-          </h2>
-          <p className="text-text-medium text-lg text-center mb-16 max-w-3xl mx-auto">
-            Von der manuellen Arbeit zur vollautomatischen Lösung — Schritt für Schritt, ohne Risiko.
-          </p>
-
-          <div className="max-w-6xl mx-auto">
-            {/* Visual Data Flow */}
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12 mb-16 relative overflow-hidden">
-              
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="grid grid-cols-12 grid-rows-8 h-full gap-2">
-                  {Array.from({ length: 96 }).map((_, i) => (
-                    <div key={i} className="bg-accent rounded-sm"></div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-primary mb-8 text-center">Datenfluss: Von Input zu Output</h3>
-                
-                <div className="grid lg:grid-cols-5 gap-8 items-center">
-                  {/* Inputs */}
-                  <div className="lg:col-span-2">
-                    <h4 className="text-lg font-semibold text-primary mb-4 text-center">Eingaben</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { icon: FileText, label: 'PDFs', color: 'pink' },
-                        { icon: Mail, label: 'E-Mails', color: 'yellow' },
-                        { icon: Database, label: 'ERP/CRM', color: 'cyan' },
-                        { icon: MessageSquare, label: 'Sprache', color: 'blue' },
-                        { icon: Globe, label: 'Webseiten', color: 'green' },
-                        { icon: FileCode, label: 'Portale', color: 'pink' }
-                      ].map((item, i) => {
-                        const Icon = item.icon;
-                        return (
-                          <div key={i} className={`icon-box mb-2 icon-neon-${item.color} mx-auto`}>
-                            <Icon className="w-6 h-6" />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Arrow Right */}
-                  <div className="text-center hidden lg:block">
-                    <ChevronRight className="w-8 h-8 text-accent mx-auto" />
-                  </div>
-
-                  {/* Processing */}
-                  <div className="text-center">
-                    <div className="icon-box mb-4 mx-auto bg-gradient-to-br from-accent to-blue-500 text-white border-0">
-                      <Cloud className="w-8 h-8" />
-                    </div>
-                    <h4 className="text-lg font-semibold text-primary mb-2">VK Cloud</h4>
-                    <p className="text-sm text-gray-600">Automatisierte Prüfung, Datenabgleich, Transformation</p>
-                  </div>
-
-                  {/* Arrow Right */}
-                  <div className="text-center hidden lg:block">
-                    <ChevronRight className="w-8 h-8 text-accent mx-auto" />
-                  </div>
-
-                  {/* Outputs */}
-                  <div className="lg:col-span-2">
-                    <h4 className="text-lg font-semibold text-primary mb-4 text-center">Ausgaben</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { icon: Database, label: 'ERP/CRM', color: 'cyan' },
-                        { icon: Layout, label: 'Web App', color: 'yellow' },
-                        { icon: BarChart3, label: 'Reports', color: 'green' },
-                        { icon: FileText, label: 'Excel', color: 'blue' },
-                        { icon: Mail, label: 'E-Mail', color: 'pink' },
-                        { icon: Settings, label: 'APIs', color: 'cyan' }
-                      ].map((item, i) => {
-                        const Icon = item.icon;
-                        return (
-                          <div key={i} className={`icon-box mb-2 icon-neon-${item.color} mx-auto`}>
-                            <Icon className="w-6 h-6" />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Three Steps */}
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  step: '1',
-                  icon: Search,
-                  title: 'Prozess verstehen',
-                  description: 'Wir analysieren Ihren Workflow und finden die größten Hebel. Kostenlos.',
-                  color: 'pink'
-                },
-                {
-                  step: '2', 
-                  icon: Rocket,
-                  title: 'Pilot starten',
-                  description: 'Wir übernehmen den Prozess sofort — erstmal semi-automatisch. Sie sehen Ergebnisse in Tagen, nicht Monaten.',
-                  color: 'yellow'
-                },
-                {
-                  step: '3',
-                  icon: TrendingUp,
-                  title: 'Automatisierung skalieren',
-                  description: 'Über Zeit automatisieren wir immer mehr. Ihre Kosten sinken, die Qualität steigt.',
-                  color: 'cyan'
-                }
-              ].map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="bg-white p-8 rounded-2xl card-shadow hover-lift text-center">
-                    <div className="relative mb-6">
-                      <div className="text-6xl font-bold text-gray-100 absolute -top-4 left-1/2 -translate-x-1/2">
-                        {step.step}
-                      </div>
-                      <div className={`icon-box mx-auto icon-neon-${step.color} relative z-10`}>
-                        <Icon className="w-8 h-8" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-semibold text-primary mb-4">{step.title}</h3>
-                    <p className="text-text-medium">{step.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pain Points Section */}
-      <section className="py-24 bg-gray-50">
+      {/* Pain & Solution Section */}
+      <section id="process" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 text-center">
             Kennen Sie das?
           </h2>
-          <p className="text-text-medium text-lg text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-text-medium text-lg text-center mb-16 max-w-2xl mx-auto">
             Diese Probleme lösen wir täglich für unsere Kunden.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl card-shadow hover-lift">
-              <div className="icon-box mb-6 icon-neon-pink">
-                <Users className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Ihr Team tippt Daten manuell von A nach B?</h3>
-              <p className="text-text-medium">Kostbare Arbeitszeit geht für Routine-Aufgaben verloren, statt für wertschöpfende Tätigkeiten.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl card-shadow hover-lift">
-              <div className="icon-box mb-6 icon-neon-yellow">
-                <Target className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Fehler in der Datenverarbeitung kosten Sie Geld?</h3>
-              <p className="text-text-medium">Menschliche Fehler führen zu Nacharbeit, Reklamationen und verlorenen Kunden.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl card-shadow hover-lift">
-              <div className="icon-box mb-6 icon-neon-cyan">
-                <Clock className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Sie wissen, dass es besser geht — aber IT-Projekte sind zu teuer und riskant?</h3>
-              <p className="text-text-medium">Klassische Software-Projekte dauern Monate, kosten viel und das Ergebnis ist ungewiss.</p>
-            </div>
+          <div className="max-w-5xl mx-auto space-y-8">
+            {[
+              {
+                pain: 'Ihr Team tippt Daten manuell von A nach B.',
+                solution: 'Wir übernehmen den Prozess und automatisieren ihn — Sie bekommen nur noch das Ergebnis.',
+                painIcon: Users,
+                solutionIcon: Zap
+              },
+              {
+                pain: 'Fehler in der Datenverarbeitung kosten Sie Geld.',
+                solution: 'Automatisierte Prüfungen und Abgleiche eliminieren menschliche Fehler — zuverlässig und nachvollziehbar.',
+                painIcon: Target,
+                solutionIcon: Shield
+              },
+              {
+                pain: 'IT-Projekte sind zu teuer, zu lang und zu riskant.',
+                solution: 'Kein Projekt. Wir starten sofort als Service — Sie sehen Ergebnisse in Tagen, nicht Monaten.',
+                painIcon: Clock,
+                solutionIcon: Rocket
+              }
+            ].map((item, index) => {
+              const PainIcon = item.painIcon;
+              const SolutionIcon = item.solutionIcon;
+              return (
+                <div key={index} className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-white p-8 rounded-2xl card-shadow flex items-start gap-4">
+                    <div className="icon-box icon-neon-pink flex-shrink-0">
+                      <PainIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-accent mb-1">Das Problem</p>
+                      <p className="text-lg font-semibold text-primary">{item.pain}</p>
+                    </div>
+                  </div>
+                  <div className="bg-white p-8 rounded-2xl card-shadow flex items-start gap-4">
+                    <div className="icon-box icon-neon-cyan flex-shrink-0">
+                      <SolutionIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-green-600 mb-1">Unsere Lösung</p>
+                      <p className="text-lg text-text-medium">{item.solution}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -440,31 +325,45 @@ function App() {
               Service, nicht Software
             </h2>
             <p className="text-text-medium text-lg leading-relaxed">
-              Wir verkaufen Ihnen keine Software. Wir übernehmen Ihre Prozesse als Service — Sie bezahlen nur für Ergebnisse.
+              Wir verkaufen Ihnen kein IT-Projekt. Wir übernehmen Ihre Prozesse als Service — Sie bezahlen für Ergebnisse.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl hover-lift text-center">
-              <div className="icon-box mb-6 mx-auto icon-neon-pink">
-                <Search className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Prozess verstehen</h3>
-              <p className="text-text-medium">Wir analysieren Ihren Workflow und finden die größten Hebel. Kostenlos.</p>
-            </div>
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl hover-lift text-center">
-              <div className="icon-box mb-6 mx-auto icon-neon-yellow">
-                <Rocket className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Pilot starten</h3>
-              <p className="text-text-medium">Wir übernehmen den Prozess sofort — erstmal semi-automatisch. Sie sehen Ergebnisse in Tagen, nicht Monaten.</p>
-            </div>
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl hover-lift text-center">
-              <div className="icon-box mb-6 mx-auto icon-neon-cyan">
-                <TrendingUp className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">Automatisierung skalieren</h3>
-              <p className="text-text-medium">Über Zeit automatisieren wir immer mehr. Ihre Kosten sinken, die Qualität steigt.</p>
-            </div>
+            {[
+              {
+                step: '1',
+                icon: Search,
+                title: 'Erstgespräch',
+                description: 'Wir verstehen Ihren Prozess und zeigen Ihnen die größten Hebel. Kostenlos und unverbindlich.',
+                color: 'pink'
+              },
+              {
+                step: '2',
+                icon: Rocket,
+                title: 'Pilot',
+                description: 'Wir übernehmen den Prozess sofort. Sie sehen Ergebnisse in Tagen, nicht Monaten.',
+                color: 'yellow'
+              },
+              {
+                step: '3',
+                icon: TrendingUp,
+                title: 'Skalieren',
+                description: 'Wir automatisieren immer weiter. Ihre Qualität steigt, Ihr Aufwand sinkt.',
+                color: 'cyan'
+              }
+            ].map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={index} className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl hover-lift text-center">
+                  <div className="text-5xl font-bold text-accent/20 mb-2">{step.step}</div>
+                  <div className={`icon-box mb-6 mx-auto icon-neon-${step.color}`}>
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-primary mb-3">{step.title}</h3>
+                  <p className="text-text-medium">{step.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -473,72 +372,59 @@ function App() {
       <section id="usecases" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 text-center">
-            Anwendungsfälle
+            Anwendungsbereiche
           </h2>
           <p className="text-text-medium text-lg text-center mb-16 max-w-2xl mx-auto">
-            Konkrete Lösungen für konkrete Probleme — so helfen wir Unternehmen jeden Tag.
+            Branchenunabhängig. Überall dort, wo manuelle Prozesse Zeit und Geld kosten.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
               {
                 icon: FileText,
-                emoji: '📧',
-                title: 'Angebotserstellung',
-                description: 'LV kommt rein, Angebot geht raus. Automatisch kalkuliert.',
+                title: 'Dokumentenverarbeitung',
+                description: 'Rechnungen, Verträge und Formulare automatisch erfassen, prüfen und ins richtige System übertragen.',
                 color: 'pink'
               },
               {
-                icon: Search,
-                emoji: '🔍',
-                title: 'Lokales SEO',
-                description: 'Ihre Kunden suchen lokal. Wir sorgen dafür, dass Sie gefunden werden.',
+                icon: BarChart3,
+                title: 'Reporting & Datenabgleich',
+                description: 'Daten aus verschiedenen Systemen zusammenführen — automatisch, fehlerfrei, in Echtzeit.',
                 color: 'yellow'
               },
               {
-                icon: Scale,
-                emoji: '⚖️',
-                title: 'Schadenregulierung',
-                description: 'Versicherungsfälle schneller abwickeln. Weniger Papier, mehr Durchsatz.',
+                icon: FileCode,
+                title: 'Angebotserstellung',
+                description: 'Vom Angebot zur Rechnung — ohne Copy-Paste, ohne veraltete Preise, ohne Fehler.',
                 color: 'cyan'
               },
               {
-                icon: Building2,
-                emoji: '🏗️',
-                title: 'Ausschreibungen & KI',
-                description: 'GAEB-Dateien automatisch parsen und vorkalkulieren.',
+                icon: Users,
+                title: 'Onboarding & Checklisten',
+                description: 'Kunden- oder Mitarbeiter-Onboarding strukturiert automatisieren. Kein Schritt wird vergessen.',
                 color: 'blue'
               },
               {
-                icon: BarChart3,
-                emoji: '📊',
-                title: 'Sales-Prozesse',
-                description: 'Innen- und Außendienst digitalisieren. Vom Lead bis zum Abschluss.',
+                icon: Mail,
+                title: 'E-Mail & Posteingang',
+                description: 'Eingehende Anfragen automatisch sortieren, kategorisieren und an die richtige Stelle weiterleiten.',
                 color: 'green'
               },
               {
                 icon: Brain,
-                emoji: '🤖',
-                title: 'KI-Integration',
-                description: 'ChatGPT & Co. sinnvoll einsetzen. Datenschutzkonform, on-premise möglich.',
+                title: 'KI im Unternehmen',
+                description: 'ChatGPT & Co. datenschutzkonform einsetzen — an Ihre eigenen Daten angebunden, on-premise oder Cloud.',
                 color: 'pink'
               }
             ].map((usecase, index) => {
               const Icon = usecase.icon;
               return (
                 <div key={index} className="bg-white p-8 rounded-2xl card-shadow hover-lift">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="text-4xl">{usecase.emoji}</div>
-                    <div className={`icon-box icon-neon-${usecase.color}`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
+                  <div className={`icon-box mb-6 icon-neon-${usecase.color}`}>
+                    <Icon className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-semibold text-primary mb-3">{usecase.title}</h3>
-                  <p className="text-text-medium mb-4">{usecase.description}</p>
-                  <a href="#" className="text-accent font-medium hover:text-accent/80 transition-colors inline-flex items-center">
-                    Mehr erfahren
-                    <ChevronRight className="w-4 h-4 ml-1" />
-                  </a>
+                  <p className="text-text-medium">{usecase.description}</p>
                 </div>
               );
             })}
