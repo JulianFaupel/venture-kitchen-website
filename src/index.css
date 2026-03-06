@@ -144,14 +144,17 @@
 
 .hero-background {
   position: relative;
-  background-color: #1B2134;
+  background-image: url('/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-background::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(27, 33, 52, 0.95), rgba(40, 48, 70, 0.9));
+  background: linear-gradient(135deg, rgba(27, 33, 52, 0.3), rgba(40, 48, 70, 0.2));
   z-index: 1;
 }
 
@@ -252,7 +255,7 @@
 }
 
 .icon-box {
-  @apply w-18 h-18 flex items-center justify-center;
+  @apply flex items-center justify-center;
   width: 72px;
   height: 72px;
   background: #ffffff;
@@ -300,4 +303,36 @@
   border-bottom: 3px solid #F700FF;
   display: inline-block;
   padding-bottom: 8px;
+}
+
+/* Client Logo Carousel Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Hero Mockup - Subtle Float */
+.hero-float {
+  animation: heroFloat 8s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: rotate(-3deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(-8px);
+  }
 }
