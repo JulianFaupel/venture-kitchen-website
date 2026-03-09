@@ -345,8 +345,8 @@ function App() {
               },
               {
                 icon: Settings,
-                title: 'Tool-Friedhof',
-                description: 'Software gekauft, Schulung gemacht, keiner nutzt es richtig. Das Problem ist geblieben, nur die Kosten sind gestiegen.',
+                title: 'Lösungen, die keiner nutzt',
+                description: 'Ob Tool oder Prozess — wenn die Lösung am Alltag vorbei geht, ändert sich nichts. Wir bauen nur, was wirklich genutzt wird.',
                 color: 'blue'
               },
               {
@@ -384,10 +384,10 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Service, nicht Software
+              So arbeiten wir
             </h2>
             <p className="text-text-medium text-lg leading-relaxed">
-              Wir verkaufen Ihnen kein IT-Projekt. Wir übernehmen Ihre Prozesse als Service — Sie bezahlen für Ergebnisse.
+              Ob Software oder Prozessautomatisierung — Sie bezahlen für Ergebnisse, nicht für Stunden.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
