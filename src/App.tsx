@@ -4,19 +4,6 @@ import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layou
 import BookingModal from './components/BookingModal';
 import CookieBanner from './components/CookieBanner';
 
-function MobileCTA({ onClick }: { onClick: () => void }) {
-  return (
-    <div className="lg:hidden px-6 py-6 bg-white/80 backdrop-blur-sm">
-      <button
-        onClick={onClick}
-        className="gradient-button text-white w-full py-4 rounded-lg font-semibold text-lg"
-      >
-        Kostenloses Erstgespräch
-      </button>
-    </div>
-  );
-}
-
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -342,7 +329,6 @@ function App() {
           </div>
         </div>
       </section>
-      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Typische Ausgangssituationen */}
       <section id="process" className="py-24 bg-gray-50">
@@ -407,8 +393,10 @@ function App() {
             })}
           </div>
         </div>
+        <div className="lg:hidden flex justify-center pt-8 pb-2">
+          <button onClick={() => setIsBookingOpen(true)} className="gradient-button text-white w-full max-w-md py-4 rounded-lg font-semibold text-lg mx-6">Kostenloses Erstgespräch</button>
+        </div>
       </section>
-      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Service Model Section */}
       <section className="py-24 bg-primary">
@@ -463,8 +451,10 @@ function App() {
             })}
           </div>
         </div>
+        <div className="lg:hidden flex justify-center pt-8 pb-2">
+          <button onClick={() => setIsBookingOpen(true)} className="gradient-button text-white w-full max-w-md py-4 rounded-lg font-semibold text-lg mx-6">Kostenloses Erstgespräch</button>
+        </div>
       </section>
-      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Use Cases Section */}
       <section id="usecases" className="py-24 bg-gray-50">
@@ -537,8 +527,10 @@ function App() {
             })}
           </div>
         </div>
+        <div className="lg:hidden flex justify-center pt-8 pb-2">
+          <button onClick={() => setIsBookingOpen(true)} className="gradient-button text-white w-full max-w-md py-4 rounded-lg font-semibold text-lg mx-6">Kostenloses Erstgespräch</button>
+        </div>
       </section>
-      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Why Venture Kitchen Section */}
       <section className="py-24 bg-white">
@@ -582,8 +574,10 @@ function App() {
             </div>
           </div>
         </div>
+        <div className="lg:hidden flex justify-center pt-8 pb-2">
+          <button onClick={() => setIsBookingOpen(true)} className="gradient-button text-white w-full max-w-md py-4 rounded-lg font-semibold text-lg mx-6">Kostenloses Erstgespräch</button>
+        </div>
       </section>
-      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Technologies Section */}
       <section className="py-24 bg-primary">
