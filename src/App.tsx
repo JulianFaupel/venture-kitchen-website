@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layout, Globe, FileCode, MessageSquare, Target, Lightbulb, Sparkles, Zap, BarChart3, BarChartBig, Shield, Cloud, Database, Settings, FileText, Search, Scale, Building2, Brain, TrendingUp, Users, Clock } from 'lucide-react';
+import BookingModal from './components/BookingModal';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -131,12 +133,12 @@ function App() {
                   </a>
                 )
               ))}
-              <Link
-                to="/kontakt"
+              <button
+                onClick={() => setIsBookingOpen(true)}
                 className="gradient-button text-white px-6 py-3 rounded-lg font-semibold text-base"
               >
                 Kostenloses Erstgespräch
-              </Link>
+              </button>
             </div>
 
             <button
@@ -181,13 +183,12 @@ function App() {
                 </a>
               )
             ))}
-            <Link
-              to="/kontakt"
-              onClick={() => setIsMenuOpen(false)}
+            <button
+              onClick={() => { setIsMenuOpen(false); setIsBookingOpen(true); }}
               className="gradient-button text-white px-6 py-3 rounded-lg font-semibold text-center"
             >
               Kostenloses Erstgespräch
-            </Link>
+            </button>
           </div>
         </div>
       )}
@@ -206,12 +207,12 @@ function App() {
                   Wir bauen Software und Automatisierung für Geschäftsprozesse, die heute noch manuell laufen. Sie liefern den Input, wir liefern das Ergebnis.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                  <Link
-                    to="/kontakt"
+                  <button
+                    onClick={() => setIsBookingOpen(true)}
                     className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg"
                   >
                     Kostenloses Erstgespräch
-                  </Link>
+                  </button>
                 </div>
               </div>
 
@@ -626,13 +627,13 @@ function App() {
             <p className="text-xl text-text-medium mb-8 leading-relaxed">
               Kostenloses Erstgespräch — wir zeigen Ihnen in 30 Minuten, wo Ihre größten Automatisierungshebel liegen.
             </p>
-            <Link
-              to="/kontakt"
+            <button
+              onClick={() => setIsBookingOpen(true)}
               className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center"
             >
               Termin vereinbaren
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
             <p className="mt-6 text-text-medium text-sm">
               30 Minuten • Unverbindlich • Sofort umsetzbare Erkenntnisse
             </p>
@@ -746,6 +747,7 @@ function App() {
         </div>
       </footer>
 
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }
