@@ -5,6 +5,7 @@ import UseCasePage from './UseCasePage';
 import App from './App.tsx';
 import Contact from './pages/Contact.tsx';
 import Impressum from './pages/Impressum.tsx';
+import Datenschutz from './pages/Datenschutz.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<App />} />
         <Route path="/kontakt" element={<Contact />} />
         <Route path="/impressum" element={<Impressum />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
         <Route path="/anwendungsbereiche/:slug" element={<UseCasePage />} />
       </Routes>
     </BrowserRouter>
