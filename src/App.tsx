@@ -331,7 +331,7 @@ function App() {
       </section>
 
       {/* Typische Ausgangssituationen */}
-      <section id="process" className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 text-center">
             Typische Ausgangssituationen
@@ -399,7 +399,7 @@ function App() {
       </section>
 
       {/* Service Model Section */}
-      <section className="py-24 bg-primary">
+      <section id="process" className="py-24 bg-primary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
