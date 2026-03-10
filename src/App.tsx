@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layout, Globe, FileCode, MessageSquare, Target, Lightbulb, Sparkles, Zap, BarChart3, Shield, Cloud, Database, Settings, FileText, Search, Scale, Building2, Brain, TrendingUp, Users, Clock } from 'lucide-react';
+import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layout, Globe, FileCode, MessageSquare, Target, Lightbulb, Sparkles, Zap, BarChart3, BarChartBig, Shield, Cloud, Database, Settings, FileText, Search, Scale, Building2, Brain, TrendingUp, Users, Clock } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -186,10 +186,10 @@ function App() {
               {/* Left: Text Content */}
               <div className="max-w-3xl flex-1">
                 <h1 className="text-5xl lg:text-6xl text-white mb-6 leading-tight font-bold">
-                  Prozessautomatisierung<br />als Service.
+                  Digitale Lösungen,<br />die Arbeit übernehmen.
                 </h1>
                 <p className="text-xl lg:text-2xl text-white/90 mb-6 leading-relaxed">
-                  Wir übernehmen Ihre manuellen Geschäftsprozesse und betreiben sie besser, schneller und günstiger. Sie liefern den Input, wir liefern das Ergebnis.
+                  Wir bauen Software und Automatisierung für Geschäftsprozesse, die heute noch manuell laufen. Sie liefern den Input, wir liefern das Ergebnis.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mt-10">
                   <Link
@@ -380,49 +380,53 @@ function App() {
       </section>
 
       {/* Service Model Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-primary">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               So arbeiten wir
             </h2>
-            <p className="text-text-medium text-lg leading-relaxed">
-              Ob Software oder Prozessautomatisierung — Sie bezahlen für Ergebnisse, nicht für Stunden.
+            <p className="text-white/70 text-lg leading-relaxed">
+              Ob Software-Entwicklung oder Prozessautomatisierung — wir liefern Ergebnisse, nicht Stunden.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
             {[
               {
                 step: '1',
                 icon: Search,
                 title: 'Erstgespräch',
-                description: 'Wir verstehen Ihren Prozess und zeigen Ihnen die größten Hebel. Kostenlos und unverbindlich.',
+                description: 'Wir analysieren Ihre Anforderungen und Prozesse — wo liegen die größten Hebel?',
                 color: 'pink'
               },
               {
                 step: '2',
                 icon: Rocket,
-                title: 'Pilot',
-                description: 'Wir übernehmen den Prozess sofort. Sie sehen Ergebnisse in Tagen, nicht Monaten.',
+                title: 'Proof of Concept',
+                description: 'Schnell zum ersten Ergebnis. Sie sehen in Tagen, ob die Lösung funktioniert — nicht in Monaten.',
                 color: 'yellow'
               },
               {
                 step: '3',
                 icon: TrendingUp,
                 title: 'Skalieren',
-                description: 'Wir automatisieren immer weiter. Ihre Qualität steigt, Ihr Aufwand sinkt.',
+                description: 'Von der Lösung zum System. Wir bauen aus, automatisieren weiter und übergeben sauber.',
                 color: 'cyan'
               }
             ].map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={index} className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl hover-lift text-center">
-                  <div className="text-5xl font-bold text-accent/20 mb-2">{step.step}</div>
-                  <div className={`icon-box mb-6 mx-auto icon-neon-${step.color}`}>
-                    <Icon className="w-8 h-8" />
+                <div key={index} className="text-center relative pt-16">
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-5xl font-black bg-gradient-to-br from-accent via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                    0{step.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-primary mb-3">{step.title}</h3>
-                  <p className="text-text-medium">{step.description}</p>
+                  <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-lift border border-white/10 h-full">
+                    <div className={`icon-box icon-neon-${step.color} mx-auto mb-4`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
+                    <p className="text-white/70">{step.description}</p>
+                  </div>
                 </div>
               );
             })}
@@ -450,7 +454,7 @@ function App() {
                 slug: 'dokumentenverarbeitung'
               },
               {
-                icon: BarChart3,
+                icon: BarChartBig,
                 title: 'Reporting & Datenabgleich',
                 description: 'Daten aus verschiedenen Systemen zusammenführen — automatisch, fehlerfrei, in Echtzeit.',
                 color: 'yellow',
@@ -511,7 +515,7 @@ function App() {
               Warum Venture Kitchen?
             </h2>
             <p className="text-text-medium text-lg leading-relaxed">
-              Wir sind kein IT-Dienstleister. Wir sind Ihr ausgelagertes Operations-Team — mit Technologie als Hebel, nicht als Produkt.
+              Wir verbinden Software-Entwicklung mit Prozess-Know-how — damit Technologie wirklich Arbeit übernimmt.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -519,14 +523,14 @@ function App() {
               <div className="icon-box mb-6 mx-auto icon-neon-pink">
                 <Lightbulb className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">Kein IT-Projekt</h3>
+              <h3 className="text-lg font-semibold text-primary mb-3">Outcome statt Output</h3>
               <p className="text-text-medium">Sie liefern den Input, wir liefern das Ergebnis. Kein Projekt, kein Risiko.</p>
             </div>
             <div className="text-center">
               <div className="icon-box mb-6 mx-auto icon-neon-yellow">
                 <Clock className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">Ergebnisse ab Tag 1</h3>
+              <h3 className="text-lg font-semibold text-primary mb-3">Ergebnisse ab Woche 1</h3>
               <p className="text-text-medium">Kein 6-Monats-Projekt, sondern sofortiger Wert</p>
             </div>
             <div className="text-center">
@@ -627,11 +631,11 @@ function App() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             {/* Company Info */}
-            <div className="lg:col-span-2">
+            <div>
               <div className="mb-6">
                 <span className="logo-gradient-text">VENTURE KITCHEN.</span>
               </div>
-              <p className="text-neutral-light mb-6">
+              <p className="text-neutral-light mb-6 max-w-xs">
                 Prozessautomatisierung als Service. Wir übernehmen Ihre manuellen Abläufe und betreiben sie besser, schneller, günstiger.
               </p>
               <div className="flex space-x-4">
@@ -642,7 +646,7 @@ function App() {
             </div>
 
             {/* Solutions */}
-            <div>
+            <div className="lg:pl-12">
               <h3 className="text-white font-semibold mb-6">Lösungen</h3>
               <ul className="space-y-3">
                 <li>
@@ -662,6 +666,31 @@ function App() {
                     <ChevronRight className="w-4 h-4 mr-2" />
                     KI-Integration
                   </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Unternehmen */}
+            <div>
+              <h3 className="text-white font-semibold mb-6">Unternehmen</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#process" className="text-neutral-light hover:text-white transition-colors flex items-center">
+                    <ChevronRight className="w-4 h-4 mr-2" />
+                    So arbeiten wir
+                  </a>
+                </li>
+                <li>
+                  <Link to="/impressum" className="text-neutral-light hover:text-white transition-colors flex items-center">
+                    <ChevronRight className="w-4 h-4 mr-2" />
+                    Impressum
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/datenschutz" className="text-neutral-light hover:text-white transition-colors flex items-center">
+                    <ChevronRight className="w-4 h-4 mr-2" />
+                    Datenschutz
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -691,12 +720,12 @@ function App() {
                 © {new Date().getFullYear()} Venture Kitchen. Alle Rechte vorbehalten.
               </p>
               <div className="flex space-x-6">
-                <a href="#" className="text-neutral-light hover:text-white transition-colors text-sm">
+                <Link to="/impressum" className="text-neutral-light hover:text-white transition-colors text-sm">
                   Impressum
-                </a>
-                <a href="#" className="text-neutral-light hover:text-white transition-colors text-sm">
+                </Link>
+                <Link to="/datenschutz" className="text-neutral-light hover:text-white transition-colors text-sm">
                   Datenschutz
-                </a>
+                </Link>
               </div>
             </div>
           </div>

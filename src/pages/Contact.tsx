@@ -12,6 +12,8 @@ function Contact() {
     message: ''
   });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,29 +23,32 @@ function Contact() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState('');
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitError('');
+    setError('');
+
     try {
-      const res = await fetch('https://api.venturekitchen.io/api/contact', {
+      const apiUrl = import.meta.env.PROD
+        ? 'https://api.venturekitchen.io/api/contact'
+        : 'http://localhost:3201/api/contact';
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      const data = await res.json();
-      if (data.success) {
+
+      const result = await response.json();
+
+      if (result.success) {
         setShowSuccess(true);
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        setTimeout(() => setShowSuccess(false), 5000);
       } else {
-        setSubmitError(data.error || 'Ein Fehler ist aufgetreten.');
+        setError(result.error || 'Fehler beim Senden');
       }
-    } catch {
-      setSubmitError('Verbindungsfehler. Bitte versuchen Sie es später erneut.');
+    } catch (err) {
+      setError('Verbindungsfehler. Bitte versuchen Sie es später erneut.');
     } finally {
       setIsSubmitting(false);
     }
@@ -204,13 +209,15 @@ function Contact() {
                         placeholder="Ihre Nachricht..."
                       />
                     </div>
-                    {submitError && (
-                      <p className="text-red-500 text-sm">{submitError}</p>
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        {error}
+                      </div>
                     )}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center disabled:opacity-50"
+                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
                       {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5" />}
