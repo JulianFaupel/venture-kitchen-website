@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layout, Globe, FileCode, MessageSquare, Target, Lightbulb, Sparkles, Zap, BarChart3, BarChartBig, Shield, Cloud, Database, Settings, FileText, Search, Scale, Building2, Brain, TrendingUp, Users, Clock } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 
+function MobileCTA({ onClick }: { onClick: () => void }) {
+  return (
+    <div className="lg:hidden px-6 py-6 bg-white/80 backdrop-blur-sm">
+      <button
+        onClick={onClick}
+        className="gradient-button text-white w-full py-4 rounded-lg font-semibold text-lg"
+      >
+        Kostenloses Erstgespräch
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -328,6 +341,7 @@ function App() {
           </div>
         </div>
       </section>
+      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Typische Ausgangssituationen */}
       <section id="process" className="py-24 bg-gray-50">
@@ -393,6 +407,7 @@ function App() {
           </div>
         </div>
       </section>
+      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Service Model Section */}
       <section className="py-24 bg-primary">
@@ -448,6 +463,7 @@ function App() {
           </div>
         </div>
       </section>
+      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Use Cases Section */}
       <section id="usecases" className="py-24 bg-gray-50">
@@ -521,6 +537,7 @@ function App() {
           </div>
         </div>
       </section>
+      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Why Venture Kitchen Section */}
       <section className="py-24 bg-white">
@@ -565,6 +582,7 @@ function App() {
           </div>
         </div>
       </section>
+      <MobileCTA onClick={() => setIsBookingOpen(true)} />
 
       {/* Technologies Section */}
       <section className="py-24 bg-primary">
