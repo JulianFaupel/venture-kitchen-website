@@ -35,7 +35,7 @@ function App() {
 
   const navLinks = [
     { id: 'home', label: 'Home', href: '#' },
-    { id: 'process', label: 'Arbeitsweise', href: '#process' },
+    { id: 'process', label: 'Unser Ansatz', href: '#process' },
     { id: 'usecases', label: 'Anwendungsbereiche', href: '#usecases' },
     { id: 'contact', label: 'Kontakt', href: '/kontakt', isRoute: true }
   ];
@@ -118,6 +118,13 @@ function App() {
                   <a
                     key={link.id}
                     href={link.href}
+                    onClick={(e) => {
+                      if (link.href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.getElementById(link.href.slice(1));
+                        if (target) target.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className={getNavLinkClasses(link.id)}
                   >
                     {link.label}
@@ -161,7 +168,14 @@ function App() {
                   key={link.id}
                   href={link.href}
                   className={`text-lg ${getNavLinkClasses(link.id)}`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    if (link.href.startsWith('#')) {
+                      e.preventDefault();
+                      const target = document.getElementById(link.href.slice(1));
+                      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 300);
+                    }
+                  }}
                 >
                   {link.label}
                 </a>
