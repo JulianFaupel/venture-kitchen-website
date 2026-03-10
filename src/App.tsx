@@ -35,7 +35,7 @@ function App() {
 
   const navLinks = [
     { id: 'home', label: 'Home', href: '#' },
-    { id: 'process', label: 'So funktioniert\'s', href: '#process' },
+    { id: 'process', label: 'Arbeitsweise', href: '#process' },
     { id: 'usecases', label: 'Anwendungsbereiche', href: '#usecases' },
     { id: 'contact', label: 'Kontakt', href: '/kontakt', isRoute: true }
   ];
