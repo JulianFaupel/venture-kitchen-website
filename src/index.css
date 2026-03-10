@@ -256,20 +256,16 @@
 
 .icon-box {
   @apply flex items-center justify-center;
-  width: 72px;
-  height: 72px;
+  width: 88px;
+  height: 88px;
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .icon-box svg {
-  width: 36px;
-  height: 36px;
-}
-
-.icon-box svg {
-  @apply w-8 h-8;
+  width: 40px;
+  height: 40px;
 }
 
 /* Neon Gradient Icons */
