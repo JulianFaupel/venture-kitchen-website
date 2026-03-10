@@ -21,11 +21,32 @@ function Contact() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      const res = await fetch('https://api.venturekitchen.io/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (data.success) {
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTimeout(() => setShowSuccess(false), 5000);
+      } else {
+        setSubmitError(data.error || 'Ein Fehler ist aufgetreten.');
+      }
+    } catch {
+      setSubmitError('Verbindungsfehler. Bitte versuchen Sie es später erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -183,12 +204,16 @@ function Contact() {
                         placeholder="Ihre Nachricht..."
                       />
                     </div>
+                    {submitError && (
+                      <p className="text-red-500 text-sm">{submitError}</p>
+                    )}
                     <button
                       type="submit"
-                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center"
+                      disabled={isSubmitting}
+                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center disabled:opacity-50"
                     >
-                      Nachricht senden
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                      {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5" />}
                     </button>
                   </form>
                 )}
