@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Check, ChevronRight, ArrowRight, Mail, Linkedin, Rocket, Layout, Globe, FileCode, MessageSquare, Target, Lightbulb, Sparkles, Zap, BarChart3, BarChartBig, Shield, Cloud, Database, Settings, FileText, Search, Scale, Building2, Brain, TrendingUp, Users, Clock } from 'lucide-react';
 import BookingModal from './components/BookingModal';
+import CookieBanner from './components/CookieBanner';
 
 function MobileCTA({ onClick }: { onClick: () => void }) {
   return (
@@ -766,6 +767,7 @@ function App() {
       </footer>
 
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <CookieBanner />
     </div>
   );
 }
