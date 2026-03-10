@@ -12,6 +12,8 @@ function Contact() {
     message: ''
   });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,11 +23,35 @@ function Contact() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const apiUrl = import.meta.env.PROD
+        ? 'https://api.venturekitchen.io/api/contact'
+        : 'http://localhost:3201/api/contact';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } else {
+        setError(result.error || 'Fehler beim Senden');
+      }
+    } catch (err) {
+      setError('Verbindungsfehler. Bitte versuchen Sie es später erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -183,12 +209,18 @@ function Contact() {
                         placeholder="Ihre Nachricht..."
                       />
                     </div>
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        {error}
+                      </div>
+                    )}
                     <button
                       type="submit"
-                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center"
+                      disabled={isSubmitting}
+                      className="gradient-button text-white px-8 py-4 rounded-lg font-semibold text-lg w-full flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Nachricht senden
-                      <ArrowRight className="ml-2 w-5 h-5" />
+                      {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                      {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5" />}
                     </button>
                   </form>
                 )}

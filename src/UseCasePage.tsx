@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Building2, Users, TrendingUp, Clock, CheckCircle, Linkedin, Mail, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Building2, Users, TrendingUp, Clock, CheckCircle, Linkedin, Mail, ChevronRight, MapPin } from 'lucide-react';
 
 interface CaseStudy {
   company: string;
+  location: string;
   industry: string;
   employees: string;
   situation: string;
@@ -29,6 +30,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'Mittelständischer Großhändler',
+        location: 'Raum Augsburg',
         industry: 'Handel / Distribution',
         employees: '~45 Mitarbeiter',
         situation: 'Das Buchhaltungsteam (3 Personen) erfasste täglich 60-80 Eingangsrechnungen manuell in DATEV. Jede Rechnung wurde ausgedruckt, mit Kontierungsstempel versehen, abgetippt und abgelegt.',
@@ -45,6 +47,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Regionaler Energieversorger',
+        location: 'Schwaben',
         industry: 'Energiewirtschaft',
         employees: '~120 Mitarbeiter',
         situation: 'Vertragsänderungen, Zählerwechsel-Protokolle und Kundenanträge kamen als PDF, Fax und Papierpost rein. Drei Sachbearbeiter verteilten die Dokumente manuell auf die Fachabteilungen.',
@@ -67,6 +70,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'Handwerksbetrieb mit 3 Standorten',
+        location: 'Augsburg, Friedberg, Mering',
         industry: 'Elektrohandwerk',
         employees: '~35 Mitarbeiter',
         situation: 'Jede Woche erstellte die Assistenz der GF einen Statusbericht: Umsatz aus dem Faktura-System, offene Posten aus der Buchhaltung, Projektstand aus Excel-Listen der Bauleiter, Materialkosten aus dem Großhandels-Portal.',
@@ -83,6 +87,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Immobilienverwaltung',
+        location: 'München',
         industry: 'Immobilien',
         employees: '~20 Mitarbeiter',
         situation: 'Mieteinnahmen kamen über 3 Bankkonten, Nebenkostenabrechnungen lagen in der Hausverwaltungssoftware, Leerstandsdaten in einer Excel-Liste. Für die monatliche Eigentümer-Auswertung musste alles manuell zusammengetragen werden.',
@@ -96,6 +101,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Steuerkanzlei',
+        location: 'Augsburg',
         industry: 'Steuerberatung',
         employees: '~12 Mitarbeiter',
         situation: 'Mandantendaten in DATEV, Kommunikation in Outlook, Fristen in einer Excel-Liste, Belegstatus im DMS. Für den Wochenstatus musste die Kanzleileitung 4 Systeme öffnen.',
@@ -118,6 +124,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'SHK-Fachbetrieb',
+        location: 'Landsberg am Lech',
         industry: 'Sanitär / Heizung / Klima',
         employees: '~25 Mitarbeiter',
         situation: 'Der Meister erstellte Angebote abends nach der Baustelle. Preise wurden aus Großhandels-Katalogen oder der letzten Bestellung kopiert. Textbausteine lagen in verschiedenen Word-Dokumenten.',
@@ -134,6 +141,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'IT-Systemhaus',
+        location: 'Nürnberg',
         industry: 'IT-Dienstleistung',
         employees: '~40 Mitarbeiter',
         situation: 'Komplexe IT-Angebote mit Hardware, Lizenzen, Dienstleistung und Wartung. Jedes Angebot war ein individuelles Word-Dokument. Kalkulation in Excel, Texte aus alten Angeboten kopiert.',
@@ -155,6 +163,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'Personaldienstleister',
+        location: 'Ingolstadt',
         industry: 'Zeitarbeit / HR',
         employees: '~60 Mitarbeiter',
         situation: '150 neue Mitarbeiter pro Monat. Jeder braucht: Vertrag, Steuer-ID, Sozialversicherungsnachweis, Gesundheitszeugnis (je nach Einsatz), Arbeitskleidung, Einweisung, Einsatzplanung.',
@@ -170,6 +179,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Software-Agentur',
+        location: 'München',
         industry: 'IT / Digitalwirtschaft',
         employees: '~15 Mitarbeiter',
         situation: 'Neukunden-Onboarding: Zugänge einrichten, Projekt-Setup, Kickoff planen, Briefing-Dokumente erstellen, Slack-Channel anlegen, Zeiterfassung einrichten. Alles lag beim Projektleiter im Kopf.',
@@ -183,6 +193,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Arztpraxis-Verbund',
+        location: 'Großraum Augsburg',
         industry: 'Gesundheitswesen',
         employees: '~80 Mitarbeiter (4 Standorte)',
         situation: 'Neue MFAs brauchten: Zugänge zur Praxissoftware, Einweisung Hygiene, Schulung Abrechnung, Schlüssel, Dienstkleidung, Einarbeitung am Empfang. Jeder Standort machte es anders.',
@@ -205,6 +216,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'Hausverwaltung',
+        location: 'Augsburg',
         industry: 'Immobilienverwaltung',
         employees: '~12 Mitarbeiter',
         situation: '200+ Mails pro Tag auf info@. Mieterbeschwerden, Handwerker-Angebote, Eigentümer-Rückfragen, Behördenpost. Eine Mitarbeiterin sortierte den ganzen Vormittag Mails in Ordner und leitete weiter.',
@@ -220,6 +232,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Ingenieurbüro',
+        location: 'Regensburg',
         industry: 'Bauplanung',
         employees: '~8 Mitarbeiter',
         situation: 'Ausschreibungen, Planfreigaben, Behördenkorrespondenz, Bauherren-Rückfragen — alles per Mail. Der Inhaber war der einzige, der wusste, was wohin gehört.',
@@ -240,6 +253,7 @@ const useCaseData: Record<string, UseCaseData> = {
     cases: [
       {
         company: 'Mittelständische Anwaltskanzlei',
+        location: 'München',
         industry: 'Rechtsberatung',
         employees: '~25 Mitarbeiter (8 Anwälte)',
         situation: 'Die Anwälte nutzten ChatGPT privat für Recherche — aber mit Bauchschmerzen wegen Datenschutz. Mandanteninformationen durften nicht in externe Tools. Gleichzeitig stiegen die Recherche-Aufwände bei komplexen Fällen.',
@@ -256,6 +270,7 @@ const useCaseData: Record<string, UseCaseData> = {
       },
       {
         company: 'Technischer Großhandel',
+        location: 'Ulm / Neu-Ulm',
         industry: 'Handel',
         employees: '~90 Mitarbeiter',
         situation: '40.000 Artikel im Sortiment. Kunden riefen an und fragten: „Ich brauche ein Ventil für eine DN50-Leitung, Edelstahl, PN16, mit Flanschanschluss." Der Innendienst suchte dann 10 Minuten im Katalog.',
@@ -305,9 +320,6 @@ function UseCasePage() {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="logo-gradient-text">VENTURE KITCHEN.</Link>
-            <Link to="/" className="text-white/70 hover:text-white transition-colors flex items-center gap-2">
-              <ArrowLeft className="w-4 h-4" /> Zurück
-            </Link>
           </div>
         </nav>
       </header>
@@ -316,9 +328,9 @@ function UseCasePage() {
       <section className="hero-background pt-20 pb-16">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">
-            <Link to="/#usecases" className="text-white/60 hover:text-white/90 text-sm flex items-center gap-1 mb-6 transition-colors">
-              <ArrowLeft className="w-3 h-3" /> Alle Anwendungsbereiche
-            </Link>
+            <a href="/#usecases" className="text-white/80 hover:text-white text-lg flex items-center gap-2 mb-6 transition-colors">
+              <ArrowLeft className="w-5 h-5" /> Alle Anwendungsbereiche
+            </a>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">{data.title}</h1>
             <p className="text-xl text-white/80 leading-relaxed">{data.subtitle}</p>
           </div>
@@ -340,66 +352,66 @@ function UseCasePage() {
           <h2 className="text-3xl font-bold text-primary mb-12">
             So sieht das in der Praxis aus
           </h2>
-          <div className="space-y-16">
+          <div className="space-y-12">
             {data.cases.map((c, index) => (
-              <div key={index} className="max-w-4xl">
+              <div key={index} className="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
                 {/* Case Header */}
-                <div className="flex flex-wrap items-center gap-4 mb-6">
-                  <span className="text-5xl font-bold text-accent/15">#{index + 1}</span>
-                  <div>
-                    <h3 className="text-2xl font-bold text-primary">{c.company}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-text-medium mt-1">
-                      <span className="flex items-center gap-1"><Building2 className="w-3.5 h-3.5" /> {c.industry}</span>
-                      <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {c.employees}</span>
+                <div className="bg-gradient-to-r from-primary to-primary/90 px-8 py-6">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <span className="text-5xl font-black bg-gradient-to-br from-accent via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">#{index + 1}</span>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">{c.company}</h3>
+                      <div className="flex flex-wrap gap-4 text-sm text-white/70 mt-1">
+                        <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {c.location}</span>
+                        <span className="flex items-center gap-1"><Building2 className="w-3.5 h-3.5" /> {c.industry}</span>
+                        <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {c.employees}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Case Content */}
-                <div className="grid md:grid-cols-3 gap-6 mb-6">
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <p className="text-sm font-semibold text-primary/60 uppercase tracking-wider mb-2">Ausgangslage</p>
-                    <p className="text-text-medium text-sm leading-relaxed">{c.situation}</p>
+                <div className="p-8">
+                  {/* Case Content */}
+                  <div className="grid md:grid-cols-3 gap-6 mb-6">
+                    <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                      <p className="text-sm font-semibold text-primary/60 uppercase tracking-wider mb-2">Ausgangslage</p>
+                      <p className="text-text-medium text-sm leading-relaxed">{c.situation}</p>
+                    </div>
+                    <div className="bg-red-50 rounded-xl p-6 border border-red-100">
+                      <p className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-2">Das Problem</p>
+                      <p className="text-text-medium text-sm leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div className="bg-green-50 rounded-xl p-6 border border-green-100">
+                      <p className="text-sm font-semibold text-green-700 uppercase tracking-wider mb-2">Unsere Lösung</p>
+                      <p className="text-text-medium text-sm leading-relaxed">{c.solution}</p>
+                    </div>
                   </div>
-                  <div className="bg-red-50 rounded-xl p-6">
-                    <p className="text-sm font-semibold text-red-600/80 uppercase tracking-wider mb-2">Das Problem</p>
-                    <p className="text-text-medium text-sm leading-relaxed">{c.problem}</p>
+
+                  {/* Results */}
+                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 border border-gray-200 rounded-xl p-6">
+                    <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
+                      <TrendingUp className="w-4 h-4 text-accent" /> Ergebnisse
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {c.results.map((result, ri) => (
+                        <div key={ri} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-text-medium">{result}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="bg-green-50 rounded-xl p-6">
-                    <p className="text-sm font-semibold text-green-700/80 uppercase tracking-wider mb-2">Unsere Lösung</p>
-                    <p className="text-text-medium text-sm leading-relaxed">{c.solution}</p>
-                  </div>
+
+                  {/* Quote */}
+                  {c.quote && (
+                    <blockquote className="mt-6 pl-6 border-l-4 border-fuchsia-400">
+                      <p className="text-lg text-primary italic">„{c.quote}"</p>
+                      {c.quoteRole && (
+                        <p className="text-sm text-text-medium mt-2">— {c.quoteRole}</p>
+                      )}
+                    </blockquote>
+                  )}
                 </div>
-
-                {/* Results */}
-                <div className="bg-white border border-gray-100 rounded-xl p-6 card-shadow">
-                  <p className="text-sm font-semibold text-primary/60 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <TrendingUp className="w-4 h-4" /> Ergebnisse
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {c.results.map((result, ri) => (
-                      <div key={ri} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-text-medium">{result}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quote */}
-                {c.quote && (
-                  <blockquote className="mt-6 pl-6 border-l-4 border-accent/30">
-                    <p className="text-lg text-primary italic">„{c.quote}"</p>
-                    {c.quoteRole && (
-                      <p className="text-sm text-text-medium mt-2">— {c.quoteRole}</p>
-                    )}
-                  </blockquote>
-                )}
-
-                {/* Divider */}
-                {index < data.cases.length - 1 && (
-                  <hr className="mt-16 border-gray-200" />
-                )}
               </div>
             ))}
           </div>
