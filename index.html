@@ -5,6 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Venture Kitchen – Digitale Entscheidungen. Unternehmerisch gedacht.</title>
+
+    <!-- Google tag (gtag.js) — AW-18122569261 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18122569261"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2 — alles 'denied' bis Cookie-Banner zustimmt.
+      // CookieBanner.tsx setzt 'granted' bei Accept.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'AW-18122569261');
+    </script>
   </head>
   <body>
     <div id="root"></div>

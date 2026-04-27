@@ -1,5 +1,29 @@
 import { useState, useEffect } from 'react';
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+  }
+}
+
+// Google Consent Mode v2 — push direkt in dataLayer, damit der Update auch
+// ankommt wenn gtag.js noch async lädt.
+function pushConsent(granted: boolean) {
+  if (typeof window === 'undefined') return;
+  window.dataLayer = window.dataLayer || [];
+  const value = granted ? 'granted' : 'denied';
+  window.dataLayer.push([
+    'consent',
+    'update',
+    {
+      ad_storage: value,
+      ad_user_data: value,
+      ad_personalization: value,
+      analytics_storage: value,
+    },
+  ]);
+}
+
 function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
@@ -7,18 +31,23 @@ function CookieBanner() {
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
       setTimeout(() => setVisible(true), 1000);
+      return;
     }
+    // Bestehender Status bei jedem Pageload an gtag spiegeln.
+    pushConsent(consent === 'accepted');
   }, []);
 
   const accept = () => {
     localStorage.setItem('cookie_consent', 'accepted');
     localStorage.setItem('cookie_consent_date', new Date().toISOString());
+    pushConsent(true);
     setVisible(false);
   };
 
   const reject = () => {
     localStorage.setItem('cookie_consent', 'rejected');
     localStorage.setItem('cookie_consent_date', new Date().toISOString());
+    pushConsent(false);
     setVisible(false);
   };
 
